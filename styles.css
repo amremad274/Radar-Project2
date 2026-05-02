@@ -1852,3 +1852,145 @@ button:focus {
 .content {
     padding-top: 0 !important;
 }
+
+/* =============================================
+   CONSOLE OUTPUT SECTION
+   ============================================= */
+.console-output-section {
+    margin: 2.5rem 0;
+}
+
+    .console-output-section h3 {
+        color: var(--primary-color);
+        font-size: 1.5rem;
+        margin-bottom: 1.2rem;
+    }
+
+.console-card {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+}
+
+.console-header {
+    background: #2d2d2d;
+    padding: 0.7rem 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-bottom: 1px solid #444;
+}
+
+.console-dot {
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+    .console-dot.red {
+        background: #ff5f57;
+    }
+
+    .console-dot.yellow {
+        background: #febc2e;
+    }
+
+    .console-dot.green {
+        background: #28c840;
+    }
+
+.console-title {
+    color: #aaa;
+    font-size: 0.82rem;
+    margin-left: 0.5rem;
+    letter-spacing: 0.5px;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.console-body {
+    background: #0d1117;
+    padding: 1.5rem 1.75rem;
+    overflow-x: auto;
+}
+
+.console-text {
+    margin: 0;
+    background: transparent;
+    color: #c9d1d9;
+    font-size: 0.82rem;
+    line-height: 1.75;
+    white-space: pre;
+    padding: 0;
+}
+
+/* Console token colors */
+.con-ok {
+    color: #3fb950;
+}
+
+.con-section {
+    color: #58a6ff;
+    font-weight: 700;
+}
+
+.con-label {
+    color: #8b949e;
+}
+
+.con-value {
+    color: #e6edf3;
+    font-weight: 600;
+}
+
+.con-gain {
+    color: #6e7681;
+    font-style: italic;
+}
+
+.con-pct {
+    color: #79c0ff;
+}
+
+.con-heavy {
+    color: #ffa657;
+    font-weight: 700;
+}
+
+.con-total {
+    color: #f0f6fc;
+    font-weight: 700;
+}
+
+.con-warn {
+    color: #f0883e;
+}
+
+.con-tag {
+    color: #f85149;
+    font-size: 0.78rem;
+    font-style: italic;
+}
+
+.con-table-header {
+    color: #8b949e;
+    font-size: 0.8rem;
+    letter-spacing: 0.3px;
+}
+
+.con-divider {
+    color: #30363d;
+}
+
+@media (max-width: 768px) {
+    .console-body {
+        padding: 1rem;
+    }
+
+    .console-text {
+        font-size: 0.72rem;
+        line-height: 1.6;
+    }
+}
+
