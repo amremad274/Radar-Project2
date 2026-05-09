@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pulse-Doppler LFM Radar Technical Showcase</title>
-    
+
     <!-- MathJax Configuration -->
     <script>
         MathJax = {
@@ -20,7 +20,7 @@
         };
     </script>
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    
+
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -116,7 +116,7 @@
             <div class="container">
                 <h1 class="main-title">Pulse-Doppler Linear Frequency Modulated (LFM) Radar System</h1>
                 <p class="subtitle">Technical Validation & Academic Showcase</p>
-                
+
                 <div class="objective-box">
                     <h2>Project Objective</h2>
                     <p>This project demonstrates a <strong>Pulse-Doppler LFM Radar system</strong> that can measure both <strong>how far away</strong> (range) and <strong>how fast</strong> (velocity) a target is moving. Think of it like this:</p>
@@ -126,7 +126,7 @@
                         <li><strong>Doppler Processing:</strong> We analyze how the frequency changed due to motion (tells us velocity)</li>
                         <li><strong>2D Map:</strong> We combine both to create a complete picture showing all targets with their range and speed</li>
                     </ul>
-                    
+
                     <div class="key-features">
                         <div class="feature">
                             <span class="feature-icon">📡</span>
@@ -153,7 +153,7 @@
         <section id="parameters" class="section">
             <div class="container">
                 <h2 class="section-title">System Parameters</h2>
-                
+
                 <table class="params-table">
                     <thead>
                         <tr>
@@ -234,7 +234,7 @@
             <div class="container">
                 <h2 class="section-title">Equation Validation: Code vs. Theory</h2>
                 <p class="section-desc">Verification that our MATLAB implementation matches the theoretical equations from Mahafza textbook.</p>
-                
+
                 <table class="validation-table">
                     <thead>
                         <tr>
@@ -465,7 +465,7 @@
                         </tr>
                     </tbody>
                 </table>
-                
+
                 <div class="references-box">
                     <h3>References</h3>
                     <ol>
@@ -484,7 +484,7 @@
             <div class="container">
                 <h2 class="section-title">System Block Diagram Overview</h2>
                 <p class="section-desc">This is the complete signal flow from transmission to final detection. Each block processes the signal step-by-step.</p>
-                
+
                 <div class="diagram-flow">
                     <div class="flow-block">
                         <div class="block-icon">1️⃣</div>
@@ -493,7 +493,7 @@
                         <div class="block-formula">$s(t) = e^{j\pi kt^2}$</div>
                     </div>
                     <div class="flow-arrow">↓</div>
-                    
+
                     <div class="flow-block">
                         <div class="block-icon">2️⃣</div>
                         <div class="block-title">Pulse Train Formation</div>
@@ -501,7 +501,7 @@
                         <div class="block-formula">128 pulses × 712 samples = 91,136 samples</div>
                     </div>
                     <div class="flow-arrow">↓</div>
-                    
+
                     <div class="flow-block">
                         <div class="block-icon">3️⃣</div>
                         <div class="block-title">Channel (Delay + Doppler)</div>
@@ -509,7 +509,7 @@
                         <div class="block-formula">$r(t) = s(t-\tau) \cdot e^{j2\pi f_d t}$</div>
                     </div>
                     <div class="flow-arrow">↓</div>
-                    
+
                     <div class="flow-block">
                         <div class="block-icon">4️⃣</div>
                         <div class="block-title">Add Noise</div>
@@ -517,7 +517,7 @@
                         <div class="block-formula">SNR ≈ 20 dB (before processing)</div>
                     </div>
                     <div class="flow-arrow">↓</div>
-                    
+
                     <div class="flow-block">
                         <div class="block-icon">5️⃣</div>
                         <div class="block-title">Matrix Reshaping</div>
@@ -525,7 +525,7 @@
                         <div class="block-formula">712 × 128 matrix</div>
                     </div>
                     <div class="flow-arrow">↓</div>
-                    
+
                     <div class="flow-block">
                         <div class="block-icon">6️⃣</div>
                         <div class="block-title">Matched Filter</div>
@@ -533,7 +533,7 @@
                         <div class="block-formula">Processing Gain = 24.1 dB</div>
                     </div>
                     <div class="flow-arrow">↓</div>
-                    
+
                     <div class="flow-block">
                         <div class="block-icon">7️⃣</div>
                         <div class="block-title">Range Estimation</div>
@@ -541,7 +541,7 @@
                         <div class="block-formula">$R = \frac{c \cdot \text{bin\_index}}{2f_s}$</div>
                     </div>
                     <div class="flow-arrow">↓</div>
-                    
+
                     <div class="flow-block">
                         <div class="block-icon">8️⃣</div>
                         <div class="block-title">Doppler Processing</div>
@@ -549,7 +549,7 @@
                         <div class="block-formula">1024-point FFT</div>
                     </div>
                     <div class="flow-arrow">↓</div>
-                    
+
                     <div class="flow-block">
                         <div class="block-icon">9️⃣</div>
                         <div class="block-title">Peak Interpolation</div>
@@ -557,7 +557,7 @@
                         <div class="block-formula">Sub-bin precision: ~0.01 m/s</div>
                     </div>
                     <div class="flow-arrow">↓</div>
-                    
+
                     <div class="flow-block final-block">
                         <div class="block-icon">🎯</div>
                         <div class="block-title">Block 10: Range-Doppler Map</div>
@@ -589,7 +589,7 @@
                         <div class="block-formula">$L_{\text{total}} = \sum_{i=1}^{13} L_i$</div>
                     </div>
                 </div>
-                
+
                 <div class="key-takeaway">
                     <h3>🔑 Key Takeaway</h3>
                     <p><strong>The system works across 13 blocks in 3 layers:</strong></p>
@@ -608,34 +608,39 @@
             <div class="container">
                 <h2 class="section-title">Detailed Block Explanations</h2>
                 <p class="section-desc">Here's what happens at each processing stage. let's explain each step.</p>
-                
+
                 <!-- Block 1: LFM Signal Generation -->
                 <div class="tech-card">
                     <div class="card-header">
                         <span class="block-number">Block 1</span>
                         <h3>LFM Signal Generation</h3>
                     </div>
-                    
+
                     <div class="card-body">
                         <div class="simple-explanation">
                             <h4>� What It Does</h4>
                             <p>Creates a chirp signal that sweeps from low frequency to high frequency over time. Think of it like a whistle that goes from low pitch to high pitch smoothly.</p>
-                            
+
                             <h4>📐 Key Equations</h4>
                             <ul class="equation-list">
                                 <li><strong>Pulse Duration:</strong> $T = \frac{N}{f_s} = 25.6$ μs</li>
                                 <li><strong>Chirp Rate:</strong> $k = \frac{B}{T} = 1.95 \times 10^{11}$ Hz/s (how fast frequency changes)</li>
                                 <li><strong>Signal:</strong> $s(t) = e^{j\pi kt^2}$ (phase grows with time squared)</li>
                             </ul>
-                            
+
                             <h4>🔢 MATLAB Code</h4>
                             <pre><code>T = pulse_len/fs;           % Calculate duration
 k = B / T;                  % Calculate chirp rate
 pulse = exp(1j*pi*k*t_pulse.^2);  % Generate LFM signal</code></pre>
-                            
+
                             <h4>� Why It Matters</h4>
                             <p>The chirp can be compressed later by the matched filter, turning a long 25.6 μs pulse into a sharp peak. This gives us good range resolution (30 m) while maintaining enough energy for detection.</p>
-                            
+
+
+                            <div class="matlab-figure-wrap">
+                                <img src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNzIwIDI0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBzdHlsZT0iYmFja2dyb3VuZDojZjBmMGYwO2JvcmRlcjoxcHggc29saWQgI2NjYztib3JkZXItcmFkaXVzOjRweDtmb250LWZhbWlseTpBcmlhbCxzYW5zLXNlcmlmOyI+CiAgPHJlY3Qgd2lkdGg9IjcyMCIgaGVpZ2h0PSIyNDAiIGZpbGw9IiNmMGYwZjAiLz4KCiAgPCEtLSBQYW5lbCAxIC0tPgogIDxyZWN0IHg9IjY0IiB5PSI0OCIgd2lkdGg9IjMxMCIgaGVpZ2h0PSIxNDgiIGZpbGw9IndoaXRlIiBzdHJva2U9IiNhYWEiIHN0cm9rZS13aWR0aD0iMC44Ii8+CiAgPGNsaXBQYXRoIGlkPSJjcDEiPjxyZWN0IHg9IjY0IiB5PSI0OCIgd2lkdGg9IjMxMCIgaGVpZ2h0PSIxNDgiLz48L2NsaXBQYXRoPgogIDxnIGNsaXAtcGF0aD0idXJsKCNjcDEpIj48cG9seWxpbmUgcG9pbnRzPSI2NC4wLDYwLjMgNjQuNiw2MC4zIDY1LjIsNjAuMyA2NS44LDYwLjMgNjYuNCw2MC40IDY3LjAsNjAuNCA2Ny42LDYwLjQgNjguMiw2MC41IDY4LjksNjAuNiA2OS41LDYwLjggNzAuMSw2MS4xIDcwLjcsNjEuNCA3MS4zLDYxLjggNzEuOSw2Mi40IDcyLjUsNjMuMSA3My4xLDY0LjAgNzMuNyw2NS4wIDc0LjMsNjYuMyA3NC45LDY3LjggNzUuNSw2OS41IDc2LjEsNzEuNiA3Ni43LDczLjkgNzcuMyw3Ni42IDc4LjAsNzkuNSA3OC42LDgyLjkgNzkuMiw4Ni42IDc5LjgsOTAuNiA4MC40LDk1LjAgODEuMCw5OS44IDgxLjYsMTA0LjkgODIuMiwxMTAuMyA4Mi44LDExNi4wIDgzLjQsMTIyLjAgODQuMCwxMjguMSA4NC42LDEzNC40IDg1LjIsMTQwLjcgODUuOCwxNDcuMCA4Ni40LDE1My4xIDg3LjEsMTU5LjAgODcuNywxNjQuNiA4OC4zLDE2OS43IDg4LjksMTc0LjEgODkuNSwxNzcuOSA5MC4xLDE4MC44IDkwLjcsMTgyLjggOTEuMywxODMuNiA5MS45LDE4My4zIDkyLjUsMTgxLjggOTMuMSwxNzkuMCA5My43LDE3NC44IDk0LjMsMTY5LjQgOTQuOSwxNjIuOCA5NS41LDE1NS4wIDk2LjIsMTQ2LjIgOTYuOCwxMzYuNiA5Ny40LDEyNi40IDk4LjAsMTE2LjAgOTguNiwxMDUuNSA5OS4yLDk1LjMgOTkuOCw4NS44IDEwMC40LDc3LjMgMTAxLjAsNzAuMyAxMDEuNiw2NC45IDEwMi4yLDYxLjUgMTAyLjgsNjAuMyAxMDMuNCw2MS41IDEwNC4wLDY1LjIgMTA0LjYsNzEuMiAxMDUuMyw3OS41IDEwNS45LDg5LjcgMTA2LjUsMTAxLjYgMTA3LjEsMTE0LjUgMTA3LjcsMTI4LjAgMTA4LjMsMTQxLjQgMTA4LjksMTU0LjAgMTA5LjUsMTY1LjEgMTEwLjEsMTc0LjEgMTEwLjcsMTgwLjMgMTExLjMsMTgzLjQgMTExLjksMTgzLjAgMTEyLjUsMTc5LjAgMTEzLjEsMTcxLjUgMTEzLjcsMTYwLjggMTE0LjQsMTQ3LjYgMTE1LjAsMTMyLjUgMTE1LjYsMTE2LjYgMTE2LjIsMTAwLjkgMTE2LjgsODYuNCAxMTcuNCw3NC4zIDExOC4wLDY1LjYgMTE4LjYsNjAuOSAxMTkuMiw2MC45IDExOS44LDY1LjYgMTIwLjQsNzQuOSAxMjEuMCw4OC4xIDEyMS42LDEwNC4yIDEyMi4yLDEyMi4wIDEyMi44LDE0MC4wIDEyMy41LDE1Ni42IDEyNC4xLDE3MC4yIDEyNC43LDE3OS41IDEyNS4zLDE4My42IDEyNS45LDE4MS43IDEyNi41LDE3NC4wIDEyNy4xLDE2MS4xIDEyNy43LDE0NC4xIDEyOC4zLDEyNC42IDEyOC45LDEwNC43IDEyOS41LDg2LjUgMTMwLjEsNzIuMCAxMzAuNyw2Mi45IDEzMS4zLDYwLjQgMTMxLjksNjUuMCAxMzIuNiw3Ni40IDEzMy4yLDkzLjMgMTMzLjgsMTEzLjggMTM0LjQsMTM1LjUgMTM1LjAsMTU1LjcgMTM1LjYsMTcxLjggMTM2LjIsMTgxLjUgMTM2LjgsMTgzLjQgMTM3LjQsMTc3LjAgMTM4LjAsMTYzLjEgMTM4LjYsMTQzLjQgMTM5LjIsMTIwLjUgMTM5LjgsOTcuNiAxNDAuNCw3OC4xIDE0MS4wLDY1LjAgMTQxLjcsNjAuMyAxNDIuMyw2NS4xIDE0Mi45LDc4LjcgMTQzLjUsOTkuMiAxNDQuMSwxMjMuNSAxNDQuNywxNDcuOCAxNDUuMywxNjcuOSAxNDUuOSwxODAuNiAxNDYuNSwxODMuNCAxNDcuMSwxNzUuNiAxNDcuNywxNTguNCAxNDguMywxMzQuNyAxNDguOSwxMDguNSAxNDkuNSw4NC42IDE1MC4xLDY3LjQgMTUwLjgsNjAuNCAxNTEuNCw2NS4wIDE1Mi4wLDgwLjcgMTUyLjYsMTA0LjUgMTUzLjIsMTMxLjkgMTUzLjgsMTU3LjUgMTU0LjQsMTc2LjEgMTU1LjAsMTgzLjYgMTU1LjYsMTc4LjMgMTU2LjIsMTYxLjEgMTU2LjgsMTM1LjQgMTU3LjQsMTA2LjYgMTU4LjAsODEuMSAxNTguNiw2NC41IDE1OS4yLDYwLjcgMTU5LjksNzAuOSAxNjAuNSw5My4wIDE2MS4xLDEyMi4wIDE2MS43LDE1MS4yIDE2Mi4zLDE3My41IDE2Mi45LDE4My40IDE2My41LDE3OC40IDE2NC4xLDE1OS4zIDE2NC43LDEzMC43IDE2NS4zLDk5LjcgMTY1LjksNzQuMyAxNjYuNSw2MS4yIDE2Ny4xLDY0LjEgMTY3LjcsODIuNCAxNjguMywxMTEuNSAxNjkuMCwxNDMuNiAxNjkuNiwxNjkuOSAxNzAuMiwxODMuMCAxNzAuOCwxNzkuMCAxNzEuNCwxNTguNyAxNzIuMCwxMjcuNyAxNzIuNiw5NC45IDE3My4yLDY5LjkgMTczLjgsNjAuMyAxNzQuNCw2OS4zIDE3NS4wLDk0LjQgMTc1LjYsMTI4LjAgMTc2LjIsMTYwLjAgMTc2LjgsMTgwLjIgMTc3LjQsMTgyLjAgMTc4LjEsMTY0LjUgMTc4LjcsMTMzLjIgMTc5LjMsOTguMSAxNzkuOSw3MC43IDE4MC41LDYwLjMgMTgxLjEsNzAuOCAxODEuNyw5OC44IDE4Mi4zLDEzNC45IDE4Mi45LDE2Ni43IDE4My41LDE4Mi45IDE4NC4xLDE3Ny42IDE4NC43LDE1Mi4zIDE4NS4zLDExNi4wIDE4NS45LDgxLjYgMTg2LjUsNjIuMSAxODcuMiw2NC44IDE4Ny44LDg5LjAgMTg4LjQsMTI1LjkgMTg5LjAsMTYxLjQgMTg5LjYsMTgxLjggMTkwLjIsMTc5LjAgMTkwLjgsMTUzLjYgMTkxLjQsMTE1LjYgMTkyLjAsODAuMCAxOTIuNiw2MS4yIDE5My4yLDY3LjMgMTkzLjgsOTYuMCAxOTQuNCwxMzUuNiAxOTUuMCwxNjkuNyAxOTUuNiwxODMuNyAxOTYuMywxNzEuMyAxOTYuOSwxMzcuNiAxOTcuNSw5Ny4wIDE5OC4xLDY3LjIgMTk4LjcsNjEuNiAxOTkuMyw4My4wIDE5OS45LDEyMi4wIDIwMC41LDE2MS4yIDIwMS4xLDE4Mi42IDIwMS43LDE3Ni4wIDIwMi4zLDE0NC4yIDIwMi45LDEwMS44IDIwMy41LDY4LjkgMjA0LjEsNjEuMyAyMDQuNyw4Mi45IDIwNS40LDEyMy42IDIwNi4wLDE2My43IDIwNi42LDE4My4zIDIwNy4yLDE3Mi40IDIwNy44LDEzNi4yIDIwOC40LDkyLjYgMjA5LjAsNjMuOSAyMDkuNiw2NS4wIDIxMC4yLDk1LjcgMjEwLjgsMTQwLjMgMjExLjQsMTc1LjMgMjEyLjAsMTgyLjIgMjEyLjYsMTU2LjggMjEzLjIsMTEyLjYgMjEzLjgsNzMuMyAyMTQuNSw2MC42IDIxNS4xLDgxLjggMjE1LjcsMTI1LjQgMjE2LjMsMTY3LjIgMjE2LjksMTgzLjYgMjE3LjUsMTY1LjAgMjE4LjEsMTIxLjYgMjE4LjcsNzguMyAyMTkuMyw2MC4zIDIxOS45LDc4LjUgMjIwLjUsMTIyLjQgMjIxLjEsMTY2LjIgMjIxLjcsMTgzLjYgMjIyLjMsMTYzLjkgMjIyLjksMTE4LjYgMjIzLjUsNzUuMiAyMjQuMiw2MC42IDIyNC44LDg0LjEgMjI1LjQsMTMxLjQgMjI2LjAsMTcyLjkgMjI2LjYsMTgyLjIgMjI3LjIsMTUzLjAgMjI3LjgsMTAzLjcgMjI4LjQsNjYuMiAyMjkuMCw2NS4wIDIyOS42LDEwMS4zIDIzMC4yLDE1MS40IDIzMC44LDE4Mi4wIDIzMS40LDE3Mi40IDIzMi4wLDEyOC43IDIzMi42LDgwLjMgMjMzLjMsNjAuNCAyMzMuOSw4Mi45IDIzNC41LDEzMi42IDIzNS4xLDE3NS4xIDIzNS43LDE4MC4zIDIzNi4zLDE0NC4yIDIzNi45LDkyLjIgMjM3LjUsNjEuNCAyMzguMSw3NC40IDIzOC43LDEyMi4wIDIzOS4zLDE2OS43IDIzOS45LDE4Mi40IDI0MC41LDE1MC4zIDI0MS4xLDk3LjAgMjQxLjcsNjIuMyAyNDIuNCw3Mi43IDI0My4wLDEyMC42IDI0My42LDE2OS43IDI0NC4yLDE4Mi4xIDI0NC44LDE0OC4wIDI0NS40LDkzLjUgMjQ2LjAsNjEuMiAyNDYuNiw3Ni45IDI0Ny4yLDEyOC40IDI0Ny44LDE3NC45IDI0OC40LDE3OS4wIDI0OS4wLDEzNi45IDI0OS42LDgyLjYgMjUwLjIsNjAuNSAyNTAuOCw4OS4wIDI1MS41LDE0NS4wIDI1Mi4xLDE4MS45IDI1Mi43LDE2OC42IDI1My4zLDExNi4wIDI1My45LDY4LjMgMjU0LjUsNjYuNCAyNTUuMSwxMTIuMyAyNTUuNywxNjYuNyAyNTYuMywxODIuMyAyNTYuOSwxNDUuMiAyNTcuNSw4Ny43IDI1OC4xLDYwLjMgMjU4LjcsODcuOCAyNTkuMywxNDUuOSAyNTkuOSwxODIuNiAyNjAuNiwxNjQuNSAyNjEuMiwxMDcuNyAyNjEuOCw2My44IDI2Mi40LDczLjQgMjYzLjAsMTI4LjAgMjYzLjYsMTc3LjEgMjY0LjIsMTc0LjcgMjY0LjgsMTIyLjcgMjY1LjQsNjkuOSAyNjYuMCw2Ni42IDI2Ni42LDExNi4zIDI2Ny4yLDE3MS42IDI2Ny44LDE3OS4wIDI2OC40LDEzMS4wIDI2OS4wLDc0LjEgMjY5LjcsNjQuMiAyNzAuMywxMTEuNSAyNzAuOSwxNjkuMiAyNzEuNSwxNzkuOSAyNzIuMSwxMzIuNCAyNzIuNyw3NC4zIDI3My4zLDY0LjUgMjczLjksMTEzLjMgMjc0LjUsMTcxLjEgMjc1LjEsMTc4LjQgMjc1LjcsMTI3LjIgMjc2LjMsNzAuNSAyNzYuOSw2Ny43IDI3Ny41LDEyMi4wIDI3OC4xLDE3Ni40IDI3OC44LDE3My4xIDI3OS40LDExNS4xIDI4MC4wLDY0LjUgMjgwLjYsNzUuOSAyODEuMiwxMzcuNCAyODEuOCwxODIuMiAyODIuNCwxNjEuMSAyODMuMCw5Ni45IDI4My42LDYwLjQgMjg0LjIsOTIuMyAyODQuOCwxNTcuNSAyODUuNCwxODIuOSAyODYuMCwxMzkuNSAyODYuNiw3Ni4yIDI4Ny4yLDY1LjAgMjg3LjksMTE5LjEgMjg4LjUsMTc2LjYgMjg5LjEsMTcxLjAgMjg5LjcsMTA4LjUgMjkwLjMsNjEuNyAyOTAuOSw4NS42IDI5MS41LDE1Mi41IDI5Mi4xLDE4My40IDI5Mi43LDE0MS4zIDI5My4zLDc2LjEgMjkzLjksNjYuMCAyOTQuNSwxMjMuNSAyOTUuMSwxNzkuMyAyOTUuNywxNjUuMyAyOTYuMyw5OC4zIDI5Ny4wLDYwLjMgMjk3LjYsOTguNSAyOTguMiwxNjUuOSAyOTguOCwxNzguNiAyOTkuNCwxMjAuNSAzMDAuMCw2NC4yIDMwMC42LDgwLjkgMzAxLjIsMTQ5LjggMzAxLjgsMTgzLjQgMzAyLjQsMTM4LjQgMzAzLjAsNzIuMiAzMDMuNiw3MC40IDMwNC4yLDEzNS41IDMwNC44LDE4My4xIDMwNS40LDE1MC43IDMwNi4xLDgwLjUgMzA2LjcsNjUuMCAzMDcuMywxMjUuMSAzMDcuOSwxODEuMSAzMDguNSwxNTguMCAzMDkuMSw4Ni41IDMwOS43LDYyLjggMzEwLjMsMTE5LjQgMzEwLjksMTc5LjYgMzExLjUsMTYxLjEgMzEyLjEsODguOSAzMTIuNyw2Mi4zIDMxMy4zLDExOC4zIDMxMy45LDE3OS41IDMxNC41LDE2MC41IDMxNS4yLDg3LjQgMzE1LjgsNjMuMCAzMTYuNCwxMjIuMCAzMTcuMCwxODEuMCAzMTcuNiwxNTUuOSAzMTguMiw4Mi4yIDMxOC44LDY1LjYgMzE5LjQsMTMwLjQgMzIwLjAsMTgzLjEgMzIwLjYsMTQ2LjkgMzIxLjIsNzQuMyAzMjEuOCw3MS42IDMyMi40LDE0My4xIDMyMy4wLDE4My40IDMyMy42LDEzMi41IDMyNC4zLDY1LjkgMzI0LjksODMuMiAzMjUuNSwxNTguOCAzMjYuMSwxNzkuMCAzMjYuNywxMTIuOSAzMjcuMyw2MC42IDMyNy45LDEwMi4wIDMyOC41LDE3NC4xIDMyOS4xLDE2Ni4xIDMyOS43LDkwLjAgMzMwLjMsNjMuNSAzMzAuOSwxMjguMCAzMzEuNSwxODMuMiAzMzIuMSwxNDIuNCAzMzIuNyw2OS41IDMzMy40LDc5LjUgMzM0LjAsMTU3LjAgMzM0LjYsMTc4LjggMzM1LjIsMTA5LjkgMzM1LjgsNjAuMyAzMzYuNCwxMTAuMSAzMzcuMCwxNzkuMSAzMzcuNiwxNTUuNSAzMzguMiw3Ny4zIDMzOC44LDcyLjEgMzM5LjQsMTQ4LjcgMzQwLjAsMTgxLjQgMzQwLjYsMTE2LjAgMzQxLjIsNjAuNSAzNDEuOCwxMDcuNCAzNDIuNSwxNzguNyAzNDMuMSwxNTUuMCAzNDMuNyw3NS43IDM0NC4zLDc0LjYgMzQ0LjksMTUzLjggMzQ1LjUsMTc5LjAgMzQ2LjEsMTA2LjkgMzQ2LjcsNjAuNyAzNDcuMywxMTkuOCAzNDcuOSwxODIuOCAzNDguNSwxNDAuNSAzNDkuMSw2Ni4xIDM0OS43LDg5LjEgMzUwLjMsMTY5LjcgMzUwLjksMTY2LjYgMzUxLjYsODUuMCAzNTIuMiw2OC44IDM1Mi44LDE0Ny4wIDM1My40LDE4MC44IDM1NC4wLDEwOS42IDM1NC42LDYwLjYgMzU1LjIsMTIyLjAgMzU1LjgsMTgzLjQgMzU2LjQsMTMzLjcgMzU3LjAsNjIuNyAzNTcuNiw5OS44IDM1OC4yLDE3Ny41IDM1OC44LDE1My40IDM1OS40LDcxLjUgMzYwLjAsODIuOSAzNjAuNywxNjYuNyAzNjEuMywxNjcuNCAzNjEuOSw4My40IDM2Mi41LDcxLjYgMzYzLjEsMTU0LjQgMzYzLjcsMTc2LjIgMzY0LjMsOTUuNSAzNjQuOSw2NS4wIDM2NS41LDE0Mi45IDM2Ni4xLDE4MC45IDM2Ni43LDEwNi4yIDM2Ny4zLDYxLjggMzY3LjksMTMzLjQgMzY4LjUsMTgyLjkgMzY5LjEsMTE0LjQgMzY5LjgsNjAuNiAzNzAuNCwxMjYuNiAzNzEuMCwxODMuNiAzNzEuNiwxMTkuNiAzNzIuMiw2MC40IDM3Mi44LDEyMi45IDM3My40LDE4My43IDM3NC4wLDEyMS45IiBmaWxsPSJub25lIiBzdHJva2U9IiMwMDcyQkQiIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PGxpbmUgeDE9IjY0IiB5MT0iMTgzLjciIHgyPSI2MCIgeTI9IjE4My43IiBzdHJva2U9IiM4ODgiIHN0cm9rZS13aWR0aD0iMC44Ii8+PHRleHQgeD0iNTgiIHk9IjE4Ny43IiB0ZXh0LWFuY2hvcj0iZW5kIiBmb250LXNpemU9IjkiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZmlsbD0iIzU1NSI+LTEuMDwvdGV4dD48bGluZSB4MT0iNjQiIHkxPSIxMjIuMCIgeDI9IjYwIiB5Mj0iMTIyLjAiIHN0cm9rZT0iIzg4OCIgc3Ryb2tlLXdpZHRoPSIwLjgiLz48dGV4dCB4PSI1OCIgeT0iMTI2LjAiIHRleHQtYW5jaG9yPSJlbmQiIGZvbnQtc2l6ZT0iOSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmaWxsPSIjNTU1Ij4wLjA8L3RleHQ+PGxpbmUgeDE9IjY0IiB5MT0iNjAuMyIgeDI9IjYwIiB5Mj0iNjAuMyIgc3Ryb2tlPSIjODg4IiBzdHJva2Utd2lkdGg9IjAuOCIvPjx0ZXh0IHg9IjU4IiB5PSI2NC4zIiB0ZXh0LWFuY2hvcj0iZW5kIiBmb250LXNpemU9IjkiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZmlsbD0iIzU1NSI+MS4wPC90ZXh0PjxsaW5lIHgxPSI2NC4wIiB5MT0iMTk2IiB4Mj0iNjQuMCIgeTI9IjIwMCIgc3Ryb2tlPSIjODg4IiBzdHJva2Utd2lkdGg9IjAuOCIvPjx0ZXh0IHg9IjY0LjAiIHk9IjIxMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSI5IiBmb250LWZhbWlseT0iQXJpYWwiIGZpbGw9IiM1NTUiPjA8L3RleHQ+PGxpbmUgeDE9IjEyNC41IiB5MT0iMTk2IiB4Mj0iMTI0LjUiIHkyPSIyMDAiIHN0cm9rZT0iIzg4OCIgc3Ryb2tlLXdpZHRoPSIwLjgiLz48dGV4dCB4PSIxMjQuNSIgeT0iMjEwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjkiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZmlsbD0iIzU1NSI+NTwvdGV4dD48bGluZSB4MT0iMTg1LjEiIHkxPSIxOTYiIHgyPSIxODUuMSIgeTI9IjIwMCIgc3Ryb2tlPSIjODg4IiBzdHJva2Utd2lkdGg9IjAuOCIvPjx0ZXh0IHg9IjE4NS4xIiB5PSIyMTAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iOSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmaWxsPSIjNTU1Ij4xMDwvdGV4dD48bGluZSB4MT0iMjQ1LjYiIHkxPSIxOTYiIHgyPSIyNDUuNiIgeTI9IjIwMCIgc3Ryb2tlPSIjODg4IiBzdHJva2Utd2lkdGg9IjAuOCIvPjx0ZXh0IHg9IjI0NS42IiB5PSIyMTAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iOSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmaWxsPSIjNTU1Ij4xNTwvdGV4dD48bGluZSB4MT0iMzA2LjIiIHkxPSIxOTYiIHgyPSIzMDYuMiIgeTI9IjIwMCIgc3Ryb2tlPSIjODg4IiBzdHJva2Utd2lkdGg9IjAuOCIvPjx0ZXh0IHg9IjMwNi4yIiB5PSIyMTAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iOSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmaWxsPSIjNTU1Ij4yMDwvdGV4dD48bGluZSB4MT0iMzY2LjciIHkxPSIxOTYiIHgyPSIzNjYuNyIgeTI9IjIwMCIgc3Ryb2tlPSIjODg4IiBzdHJva2Utd2lkdGg9IjAuOCIvPjx0ZXh0IHg9IjM2Ni43IiB5PSIyMTAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iOSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmaWxsPSIjNTU1Ij4yNTwvdGV4dD48L2c+CiAgPCEtLSBncmlkIDEgLS0+CiAgPGxpbmUgeDE9IjY0IiB5MT0iODUiIHgyPSIzNzQiIHkyPSI4NSIgc3Ryb2tlPSIjZTBlMGUwIiBzdHJva2Utd2lkdGg9IjAuNSIvPjxsaW5lIHgxPSI2NCIgeTE9IjEyMiIgeDI9IjM3NCIgeTI9IjEyMiIgc3Ryb2tlPSIjZTBlMGUwIiBzdHJva2Utd2lkdGg9IjAuNSIvPjxsaW5lIHgxPSI2NCIgeTE9IjE1OSIgeDI9IjM3NCIgeTI9IjE1OSIgc3Ryb2tlPSIjZTBlMGUwIiBzdHJva2Utd2lkdGg9IjAuNSIvPgogIDxsaW5lIHgxPSIxNDEiIHkxPSI0OCIgeDI9IjE0MSIgeTI9IjE5NiIgc3Ryb2tlPSIjZTBlMGUwIiBzdHJva2Utd2lkdGg9IjAuNSIvPjxsaW5lIHgxPSIyMTkiIHkxPSI0OCIgeDI9IjIxOSIgeTI9IjE5NiIgc3Ryb2tlPSIjZTBlMGUwIiBzdHJva2Utd2lkdGg9IjAuNSIvPjxsaW5lIHgxPSIyOTYiIHkxPSI0OCIgeDI9IjI5NiIgeTI9IjE5NiIgc3Ryb2tlPSIjZTBlMGUwIiBzdHJva2Utd2lkdGg9IjAuNSIvPgogIDxyZWN0IHg9IjY0IiB5PSI0OCIgd2lkdGg9IjMxMCIgaGVpZ2h0PSIxNDgiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzg4OCIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgPHRleHQgeD0iMjE5IiB5PSIzOCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxMSIgZm9udC13ZWlnaHQ9ImJvbGQiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZmlsbD0iIzMzMyI+TEZNIENoaXJwIOKAlCBSZWFsIFBhcnQ8L3RleHQ+CiAgPHRleHQgeD0iMjE5IiB5PSIyMzIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iMTAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZmlsbD0iIzU1NSI+VGltZSAozrxzKTwvdGV4dD4KICA8dGV4dCB4PSIyMiIgeT0iMTIyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjEwIiBmb250LWZhbWlseT0iQXJpYWwiIGZpbGw9IiM1NTUiIHRyYW5zZm9ybT0icm90YXRlKC05MCwyMiwxMjIpIj5BbXBsaXR1ZGU8L3RleHQ+CgogIDwhLS0gUGFuZWwgMiAtLT4KICA8cmVjdCB4PSIzOTAiIHk9IjQ4IiB3aWR0aD0iMzEwIiBoZWlnaHQ9IjE0OCIgZmlsbD0id2hpdGUiIHN0cm9rZT0iI2FhYSIgc3Ryb2tlLXdpZHRoPSIwLjgiLz4KICA8Y2xpcFBhdGggaWQ9ImNwMiI+PHJlY3QgeD0iMzkwIiB5PSI0OCIgd2lkdGg9IjMxMCIgaGVpZ2h0PSIxNDgiLz48L2NsaXBQYXRoPgogIDxnIGNsaXAtcGF0aD0idXJsKCNjcDIpIj48cG9seWxpbmUgcG9pbnRzPSIzOTAuMCwxOTYuMCAzOTAuNiwxOTUuNyAzOTEuMiwxOTUuNCAzOTEuOCwxOTUuMSAzOTIuNCwxOTQuOCAzOTMuMCwxOTQuNiAzOTMuNiwxOTQuMyAzOTQuMiwxOTQuMCAzOTQuOSwxOTMuNyAzOTUuNSwxOTMuNCAzOTYuMSwxOTMuMSAzOTYuNywxOTIuOCAzOTcuMywxOTIuNSAzOTcuOSwxOTIuMiAzOTguNSwxOTIuMCAzOTkuMSwxOTEuNyAzOTkuNywxOTEuNCA0MDAuMywxOTEuMSA0MDAuOSwxOTAuOCA0MDEuNSwxOTAuNSA0MDIuMSwxOTAuMiA0MDIuNywxODkuOSA0MDMuMywxODkuNiA0MDQuMCwxODkuNCA0MDQuNiwxODkuMSA0MDUuMiwxODguOCA0MDUuOCwxODguNSA0MDYuNCwxODguMiA0MDcuMCwxODcuOSA0MDcuNiwxODcuNiA0MDguMiwxODcuMyA0MDguOCwxODcuMCA0MDkuNCwxODYuOCA0MTAuMCwxODYuNSA0MTAuNiwxODYuMiA0MTEuMiwxODUuOSA0MTEuOCwxODUuNiA0MTIuNCwxODUuMyA0MTMuMSwxODUuMCA0MTMuNywxODQuNyA0MTQuMywxODQuNCA0MTQuOSwxODQuMSA0MTUuNSwxODMuOSA0MTYuMSwxODMuNiA0MTYuNywxODMuMyA0MTcuMywxODMuMCA0MTcuOSwxODIuNyA0MTguNSwxODIuNCA0MTkuMSwxODIuMSA0MTkuNywxODEuOCA0MjAuMywxODEuNSA0MjAuOSwxODEuMyA0MjEuNSwxODEuMCA0MjIuMiwxODAuNyA0MjIuOCwxODAuNCA0MjMuNCwxODAuMSA0MjQuMCwxNzkuOCA0MjQuNiwxNzkuNSA0MjUuMiwxNzkuMiA0MjUuOCwxNzguOSA0MjYuNCwxNzguNyA0MjcuMCwxNzguNCA0MjcuNiwxNzguMSA0MjguMiwxNzcuOCA0MjguOCwxNzcuNSA0MjkuNCwxNzcuMiA0MzAuMCwxNzYuOSA0MzAuNiwxNzYuNiA0MzEuMywxNzYuMyA0MzEuOSwxNzYuMSA0MzIuNSwxNzUuOCA0MzMuMSwxNzUuNSA0MzMuNywxNzUuMiA0MzQuMywxNzQuOSA0MzQuOSwxNzQuNiA0MzUuNSwxNzQuMyA0MzYuMSwxNzQuMCA0MzYuNywxNzMuNyA0MzcuMywxNzMuNSA0MzcuOSwxNzMuMiA0MzguNSwxNzIuOSA0MzkuMSwxNzIuNiA0MzkuNywxNzIuMyA0NDAuNCwxNzIuMCA0NDEuMCwxNzEuNyA0NDEuNiwxNzEuNCA0NDIuMiwxNzEuMSA0NDIuOCwxNzAuOSA0NDMuNCwxNzAuNiA0NDQuMCwxNzAuMyA0NDQuNiwxNzAuMCA0NDUuMiwxNjkuNyA0NDUuOCwxNjkuNCA0NDYuNCwxNjkuMSA0NDcuMCwxNjguOCA0NDcuNiwxNjguNSA0NDguMiwxNjguMiA0NDguOCwxNjguMCA0NDkuNSwxNjcuNyA0NTAuMSwxNjcuNCA0NTAuNywxNjcuMSA0NTEuMywxNjYuOCA0NTEuOSwxNjYuNSA0NTIuNSwxNjYuMiA0NTMuMSwxNjUuOSA0NTMuNywxNjUuNiA0NTQuMywxNjUuNCA0NTQuOSwxNjUuMSA0NTUuNSwxNjQuOCA0NTYuMSwxNjQuNSA0NTYuNywxNjQuMiA0NTcuMywxNjMuOSA0NTcuOSwxNjMuNiA0NTguNiwxNjMuMyA0NTkuMiwxNjMuMCA0NTkuOCwxNjIuOCA0NjAuNCwxNjIuNSA0NjEuMCwxNjIuMiA0NjEuNiwxNjEuOSA0NjIuMiwxNjEuNiA0NjIuOCwxNjEuMyA0NjMuNCwxNjEuMCA0NjQuMCwxNjAuNyA0NjQuNiwxNjAuNCA0NjUuMiwxNjAuMiA0NjUuOCwxNTkuOSA0NjYuNCwxNTkuNiA0NjcuMCwxNTkuMyA0NjcuNywxNTkuMCA0NjguMywxNTguNyA0NjguOSwxNTguNCA0NjkuNSwxNTguMSA0NzAuMSwxNTcuOCA0NzAuNywxNTcuNiA0NzEuMywxNTcuMyA0NzEuOSwxNTcuMCA0NzIuNSwxNTYuNyA0NzMuMSwxNTYuNCA0NzMuNywxNTYuMSA0NzQuMywxNTUuOCA0NzQuOSwxNTUuNSA0NzUuNSwxNTUuMiA0NzYuMSwxNTUuMCA0NzYuOCwxNTQuNyA0NzcuNCwxNTQuNCA0NzguMCwxNTQuMSA0NzguNiwxNTMuOCA0NzkuMiwxNTMuNSA0NzkuOCwxNTMuMiA0ODAuNCwxNTIuOSA0ODEuMCwxNTIuNiA0ODEuNiwxNTIuNCA0ODIuMiwxNTIuMSA0ODIuOCwxNTEuOCA0ODMuNCwxNTEuNSA0ODQuMCwxNTEuMiA0ODQuNiwxNTAuOSA0ODUuMiwxNTAuNiA0ODUuOSwxNTAuMyA0ODYuNSwxNTAuMCA0ODcuMSwxNDkuOCA0ODcuNywxNDkuNSA0ODguMywxNDkuMiA0ODguOSwxNDguOSA0ODkuNSwxNDguNiA0OTAuMSwxNDguMyA0OTAuNywxNDguMCA0OTEuMywxNDcuNyA0OTEuOSwxNDcuNCA0OTIuNSwxNDcuMSA0OTMuMSwxNDYuOSA0OTMuNywxNDYuNiA0OTQuMywxNDYuMyA0OTUuMCwxNDYuMCA0OTUuNiwxNDUuNyA0OTYuMiwxNDUuNCA0OTYuOCwxNDUuMSA0OTcuNCwxNDQuOCA0OTguMCwxNDQuNSA0OTguNiwxNDQuMyA0OTkuMiwxNDQuMCA0OTkuOCwxNDMuNyA1MDAuNCwxNDMuNCA1MDEuMCwxNDMuMSA1MDEuNiwxNDIuOCA1MDIuMiwxNDIuNSA1MDIuOCwxNDIuMiA1MDMuNCwxNDEuOSA1MDQuMSwxNDEuNyA1MDQuNywxNDEuNCA1MDUuMywxNDEuMSA1MDUuOSwxNDAuOCA1MDYuNSwxNDAuNSA1MDcuMSwxNDAuMiA1MDcuNywxMzkuOSA1MDguMywxMzkuNiA1MDguOSwxMzkuMyA1MDkuNSwxMzkuMSA1MTAuMSwxMzguOCA1MTAuNywxMzguNSA1MTEuMywxMzguMiA1MTEuOSwxMzcuOSA1MTIuNSwxMzcuNiA1MTMuMiwxMzcuMyA1MTMuOCwxMzcuMCA1MTQuNCwxMzYuNyA1MTUuMCwxMzYuNSA1MTUuNiwxMzYuMiA1MTYuMiwxMzUuOSA1MTYuOCwxMzUuNiA1MTcuNCwxMzUuMyA1MTguMCwxMzUuMCA1MTguNiwxMzQuNyA1MTkuMiwxMzQuNCA1MTkuOCwxMzQuMSA1MjAuNCwxMzMuOSA1MjEuMCwxMzMuNiA1MjEuNiwxMzMuMyA1MjIuMywxMzMuMCA1MjIuOSwxMzIuNyA1MjMuNSwxMzIuNCA1MjQuMSwxMzIuMSA1MjQuNywxMzEuOCA1MjUuMywxMzEuNSA1MjUuOSwxMzEuMiA1MjYuNSwxMzEuMCA1MjcuMSwxMzAuNyA1MjcuNywxMzAuNCA1MjguMywxMzAuMSA1MjguOSwxMjkuOCA1MjkuNSwxMjkuNSA1MzAuMSwxMjkuMiA1MzAuNywxMjguOSA1MzEuNCwxMjguNiA1MzIuMCwxMjguNCA1MzIuNiwxMjguMSA1MzMuMiwxMjcuOCA1MzMuOCwxMjcuNSA1MzQuNCwxMjcuMiA1MzUuMCwxMjYuOSA1MzUuNiwxMjYuNiA1MzYuMiwxMjYuMyA1MzYuOCwxMjYuMCA1MzcuNCwxMjUuOCA1MzguMCwxMjUuNSA1MzguNiwxMjUuMiA1MzkuMiwxMjQuOSA1MzkuOCwxMjQuNiA1NDAuNSwxMjQuMyA1NDEuMSwxMjQuMCA1NDEuNywxMjMuNyA1NDIuMywxMjMuNCA1NDIuOSwxMjMuMiA1NDMuNSwxMjIuOSA1NDQuMSwxMjIuNiA1NDQuNywxMjIuMyA1NDUuMywxMjIuMCA1NDUuOSwxMjEuNyA1NDYuNSwxMjEuNCA1NDcuMSwxMjEuMSA1NDcuNywxMjAuOCA1NDguMywxMjAuNiA1NDguOSwxMjAuMyA1NDkuNSwxMjAuMCA1NTAuMiwxMTkuNyA1NTAuOCwxMTkuNCA1NTEuNCwxMTkuMSA1NTIuMCwxMTguOCA1NTIuNiwxMTguNSA1NTMuMiwxMTguMiA1NTMuOCwxMTguMCA1NTQuNCwxMTcuNyA1NTUuMCwxMTcuNCA1NTUuNiwxMTcuMSA1NTYuMiwxMTYuOCA1NTYuOCwxMTYuNSA1NTcuNCwxMTYuMiA1NTguMCwxMTUuOSA1NTguNiwxMTUuNiA1NTkuMywxMTUuNCA1NTkuOSwxMTUuMSA1NjAuNSwxMTQuOCA1NjEuMSwxMTQuNSA1NjEuNywxMTQuMiA1NjIuMywxMTMuOSA1NjIuOSwxMTMuNiA1NjMuNSwxMTMuMyA1NjQuMSwxMTMuMCA1NjQuNywxMTIuOCA1NjUuMywxMTIuNSA1NjUuOSwxMTIuMiA1NjYuNSwxMTEuOSA1NjcuMSwxMTEuNiA1NjcuNywxMTEuMyA1NjguNCwxMTEuMCA1NjkuMCwxMTAuNyA1NjkuNiwxMTAuNCA1NzAuMiwxMTAuMSA1NzAuOCwxMDkuOSA1NzEuNCwxMDkuNiA1NzIuMCwxMDkuMyA1NzIuNiwxMDkuMCA1NzMuMiwxMDguNyA1NzMuOCwxMDguNCA1NzQuNCwxMDguMSA1NzUuMCwxMDcuOCA1NzUuNiwxMDcuNSA1NzYuMiwxMDcuMyA1NzYuOCwxMDcuMCA1NzcuNSwxMDYuNyA1NzguMSwxMDYuNCA1NzguNywxMDYuMSA1NzkuMywxMDUuOCA1NzkuOSwxMDUuNSA1ODAuNSwxMDUuMiA1ODEuMSwxMDQuOSA1ODEuNywxMDQuNyA1ODIuMywxMDQuNCA1ODIuOSwxMDQuMSA1ODMuNSwxMDMuOCA1ODQuMSwxMDMuNSA1ODQuNywxMDMuMiA1ODUuMywxMDIuOSA1ODUuOSwxMDIuNiA1ODYuNiwxMDIuMyA1ODcuMiwxMDIuMSA1ODcuOCwxMDEuOCA1ODguNCwxMDEuNSA1ODkuMCwxMDEuMiA1ODkuNiwxMDAuOSA1OTAuMiwxMDAuNiA1OTAuOCwxMDAuMyA1OTEuNCwxMDAuMCA1OTIuMCw5OS43IDU5Mi42LDk5LjUgNTkzLjIsOTkuMiA1OTMuOCw5OC45IDU5NC40LDk4LjYgNTk1LjAsOTguMyA1OTUuNyw5OC4wIDU5Ni4zLDk3LjcgNTk2LjksOTcuNCA1OTcuNSw5Ny4xIDU5OC4xLDk2LjkgNTk4LjcsOTYuNiA1OTkuMyw5Ni4zIDU5OS45LDk2LjAgNjAwLjUsOTUuNyA2MDEuMSw5NS40IDYwMS43LDk1LjEgNjAyLjMsOTQuOCA2MDIuOSw5NC41IDYwMy41LDk0LjIgNjA0LjEsOTQuMCA2MDQuOCw5My43IDYwNS40LDkzLjQgNjA2LjAsOTMuMSA2MDYuNiw5Mi44IDYwNy4yLDkyLjUgNjA3LjgsOTIuMiA2MDguNCw5MS45IDYwOS4wLDkxLjYgNjA5LjYsOTEuNCA2MTAuMiw5MS4xIDYxMC44LDkwLjggNjExLjQsOTAuNSA2MTIuMCw5MC4yIDYxMi42LDg5LjkgNjEzLjIsODkuNiA2MTMuOSw4OS4zIDYxNC41LDg5LjAgNjE1LjEsODguOCA2MTUuNyw4OC41IDYxNi4zLDg4LjIgNjE2LjksODcuOSA2MTcuNSw4Ny42IDYxOC4xLDg3LjMgNjE4LjcsODcuMCA2MTkuMyw4Ni43IDYxOS45LDg2LjQgNjIwLjUsODYuMiA2MjEuMSw4NS45IDYyMS43LDg1LjYgNjIyLjMsODUuMyA2MjMuMCw4NS4wIDYyMy42LDg0LjcgNjI0LjIsODQuNCA2MjQuOCw4NC4xIDYyNS40LDgzLjggNjI2LjAsODMuNiA2MjYuNiw4My4zIDYyNy4yLDgzLjAgNjI3LjgsODIuNyA2MjguNCw4Mi40IDYyOS4wLDgyLjEgNjI5LjYsODEuOCA2MzAuMiw4MS41IDYzMC44LDgxLjIgNjMxLjQsODEuMCA2MzIuMSw4MC43IDYzMi43LDgwLjQgNjMzLjMsODAuMSA2MzMuOSw3OS44IDYzNC41LDc5LjUgNjM1LjEsNzkuMiA2MzUuNyw3OC45IDYzNi4zLDc4LjYgNjM2LjksNzguNCA2MzcuNSw3OC4xIDYzOC4xLDc3LjggNjM4LjcsNzcuNSA2MzkuMyw3Ny4yIDYzOS45LDc2LjkgNjQwLjUsNzYuNiA2NDEuMiw3Ni4zIDY0MS44LDc2LjAgNjQyLjQsNzUuOCA2NDMuMCw3NS41IDY0My42LDc1LjIgNjQ0LjIsNzQuOSA2NDQuOCw3NC42IDY0NS40LDc0LjMgNjQ2LjAsNzQuMCA2NDYuNiw3My43IDY0Ny4yLDczLjQgNjQ3LjgsNzMuMSA2NDguNCw3Mi45IDY0OS4wLDcyLjYgNjQ5LjYsNzIuMyA2NTAuMyw3Mi4wIDY1MC45LDcxLjcgNjUxLjUsNzEuNCA2NTIuMSw3MS4xIDY1Mi43LDcwLjggNjUzLjMsNzAuNSA2NTMuOSw3MC4zIDY1NC41LDcwLjAgNjU1LjEsNjkuNyA2NTUuNyw2OS40IDY1Ni4zLDY5LjEgNjU2LjksNjguOCA2NTcuNSw2OC41IDY1OC4xLDY4LjIgNjU4LjcsNjcuOSA2NTkuNCw2Ny43IDY2MC4wLDY3LjQgNjYwLjYsNjcuMSA2NjEuMiw2Ni44IDY2MS44LDY2LjUgNjYyLjQsNjYuMiA2NjMuMCw2NS45IDY2My42LDY1LjYgNjY0LjIsNjUuMyA2NjQuOCw2NS4xIDY2NS40LDY0LjggNjY2LjAsNjQuNSA2NjYuNiw2NC4yIDY2Ny4yLDYzLjkgNjY3LjgsNjMuNiA2NjguNSw2My4zIDY2OS4xLDYzLjAgNjY5LjcsNjIuNyA2NzAuMyw2Mi41IDY3MC45LDYyLjIgNjcxLjUsNjEuOSA2NzIuMSw2MS42IDY3Mi43LDYxLjMgNjczLjMsNjEuMCA2NzMuOSw2MC43IDY3NC41LDYwLjQgNjc1LjEsNjAuMSA2NzUuNyw1OS45IDY3Ni4zLDU5LjYgNjc2LjksNTkuMyA2NzcuNiw1OS4wIDY3OC4yLDU4LjcgNjc4LjgsNTguNCA2NzkuNCw1OC4xIDY4MC4wLDU3LjggNjgwLjYsNTcuNSA2ODEuMiw1Ny4yIDY4MS44LDU3LjAgNjgyLjQsNTYuNyA2ODMuMCw1Ni40IDY4My42LDU2LjEgNjg0LjIsNTUuOCA2ODQuOCw1NS41IDY4NS40LDU1LjIgNjg2LjAsNTQuOSA2ODYuNyw1NC42IDY4Ny4zLDU0LjQgNjg3LjksNTQuMSA2ODguNSw1My44IDY4OS4xLDUzLjUgNjg5LjcsNTMuMiA2OTAuMyw1Mi45IDY5MC45LDUyLjYgNjkxLjUsNTIuMyA2OTIuMSw1Mi4wIDY5Mi43LDUxLjggNjkzLjMsNTEuNSA2OTMuOSw1MS4yIDY5NC41LDUwLjkgNjk1LjEsNTAuNiA2OTUuOCw1MC4zIDY5Ni40LDUwLjAgNjk3LjAsNDkuNyA2OTcuNiw0OS40IDY5OC4yLDQ5LjIgNjk4LjgsNDguOSA2OTkuNCw0OC42IDcwMC4wLDQ4LjMiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0Q5NTMxOSIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48bGluZSB4MT0iMzkwIiB5MT0iMTk2LjAiIHgyPSIzODYiIHkyPSIxOTYuMCIgc3Ryb2tlPSIjODg4IiBzdHJva2Utd2lkdGg9IjAuOCIvPjx0ZXh0IHg9IjM4NCIgeT0iMjAwLjAiIHRleHQtYW5jaG9yPSJlbmQiIGZvbnQtc2l6ZT0iOSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmaWxsPSIjNTU1Ij4wPC90ZXh0PjxsaW5lIHgxPSIzOTAiIHkxPSIxNjYuNCIgeDI9IjM4NiIgeTI9IjE2Ni40IiBzdHJva2U9IiM4ODgiIHN0cm9rZS13aWR0aD0iMC44Ii8+PHRleHQgeD0iMzg0IiB5PSIxNzAuNCIgdGV4dC1hbmNob3I9ImVuZCIgZm9udC1zaXplPSI5IiBmb250LWZhbWlseT0iQXJpYWwiIGZpbGw9IiM1NTUiPjE8L3RleHQ+PGxpbmUgeDE9IjM5MCIgeTE9IjEzNi44IiB4Mj0iMzg2IiB5Mj0iMTM2LjgiIHN0cm9rZT0iIzg4OCIgc3Ryb2tlLXdpZHRoPSIwLjgiLz48dGV4dCB4PSIzODQiIHk9IjE0MC44IiB0ZXh0LWFuY2hvcj0iZW5kIiBmb250LXNpemU9IjkiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZmlsbD0iIzU1NSI+MjwvdGV4dD48bGluZSB4MT0iMzkwIiB5MT0iMTA3LjIiIHgyPSIzODYiIHkyPSIxMDcuMiIgc3Ryb2tlPSIjODg4IiBzdHJva2Utd2lkdGg9IjAuOCIvPjx0ZXh0IHg9IjM4NCIgeT0iMTExLjIiIHRleHQtYW5jaG9yPSJlbmQiIGZvbnQtc2l6ZT0iOSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmaWxsPSIjNTU1Ij4zPC90ZXh0PjxsaW5lIHgxPSIzOTAiIHkxPSI3Ny42IiB4Mj0iMzg2IiB5Mj0iNzcuNiIgc3Ryb2tlPSIjODg4IiBzdHJva2Utd2lkdGg9IjAuOCIvPjx0ZXh0IHg9IjM4NCIgeT0iODEuNiIgdGV4dC1hbmNob3I9ImVuZCIgZm9udC1zaXplPSI5IiBmb250LWZhbWlseT0iQXJpYWwiIGZpbGw9IiM1NTUiPjQ8L3RleHQ+PGxpbmUgeDE9IjM5MCIgeTE9IjQ4LjAiIHgyPSIzODYiIHkyPSI0OC4wIiBzdHJva2U9IiM4ODgiIHN0cm9rZS13aWR0aD0iMC44Ii8+PHRleHQgeD0iMzg0IiB5PSI1Mi4wIiB0ZXh0LWFuY2hvcj0iZW5kIiBmb250LXNpemU9IjkiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZmlsbD0iIzU1NSI+NTwvdGV4dD48bGluZSB4MT0iMzkwLjAiIHkxPSIxOTYiIHgyPSIzOTAuMCIgeTI9IjIwMCIgc3Ryb2tlPSIjODg4IiBzdHJva2Utd2lkdGg9IjAuOCIvPjx0ZXh0IHg9IjM5MC4wIiB5PSIyMTAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iOSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmaWxsPSIjNTU1Ij4wPC90ZXh0PjxsaW5lIHgxPSI0NTAuNSIgeTE9IjE5NiIgeDI9IjQ1MC41IiB5Mj0iMjAwIiBzdHJva2U9IiM4ODgiIHN0cm9rZS13aWR0aD0iMC44Ii8+PHRleHQgeD0iNDUwLjUiIHk9IjIxMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSI5IiBmb250LWZhbWlseT0iQXJpYWwiIGZpbGw9IiM1NTUiPjU8L3RleHQ+PGxpbmUgeDE9IjUxMS4xIiB5MT0iMTk2IiB4Mj0iNTExLjEiIHkyPSIyMDAiIHN0cm9rZT0iIzg4OCIgc3Ryb2tlLXdpZHRoPSIwLjgiLz48dGV4dCB4PSI1MTEuMSIgeT0iMjEwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjkiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZmlsbD0iIzU1NSI+MTA8L3RleHQ+PGxpbmUgeDE9IjU3MS42IiB5MT0iMTk2IiB4Mj0iNTcxLjYiIHkyPSIyMDAiIHN0cm9rZT0iIzg4OCIgc3Ryb2tlLXdpZHRoPSIwLjgiLz48dGV4dCB4PSI1NzEuNiIgeT0iMjEwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjkiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZmlsbD0iIzU1NSI+MTU8L3RleHQ+PGxpbmUgeDE9IjYzMi4yIiB5MT0iMTk2IiB4Mj0iNjMyLjIiIHkyPSIyMDAiIHN0cm9rZT0iIzg4OCIgc3Ryb2tlLXdpZHRoPSIwLjgiLz48dGV4dCB4PSI2MzIuMiIgeT0iMjEwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjkiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZmlsbD0iIzU1NSI+MjA8L3RleHQ+PGxpbmUgeDE9IjY5Mi43IiB5MT0iMTk2IiB4Mj0iNjkyLjciIHkyPSIyMDAiIHN0cm9rZT0iIzg4OCIgc3Ryb2tlLXdpZHRoPSIwLjgiLz48dGV4dCB4PSI2OTIuNyIgeT0iMjEwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjkiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZmlsbD0iIzU1NSI+MjU8L3RleHQ+PC9nPgogIDxsaW5lIHgxPSIzOTAiIHkxPSI4NSIgeDI9IjcwMCIgeTI9Ijg1IiBzdHJva2U9IiNlMGUwZTAiIHN0cm9rZS13aWR0aD0iMC41Ii8+PGxpbmUgeDE9IjM5MCIgeTE9IjEyMiIgeDI9IjcwMCIgeTI9IjEyMiIgc3Ryb2tlPSIjZTBlMGUwIiBzdHJva2Utd2lkdGg9IjAuNSIvPjxsaW5lIHgxPSIzOTAiIHkxPSIxNTkiIHgyPSI3MDAiIHkyPSIxNTkiIHN0cm9rZT0iI2UwZTBlMCIgc3Ryb2tlLXdpZHRoPSIwLjUiLz4KICA8bGluZSB4MT0iNDY3IiB5MT0iNDgiIHgyPSI0NjciIHkyPSIxOTYiIHN0cm9rZT0iI2UwZTBlMCIgc3Ryb2tlLXdpZHRoPSIwLjUiLz48bGluZSB4MT0iNTQ1IiB5MT0iNDgiIHgyPSI1NDUiIHkyPSIxOTYiIHN0cm9rZT0iI2UwZTBlMCIgc3Ryb2tlLXdpZHRoPSIwLjUiLz48bGluZSB4MT0iNjIyIiB5MT0iNDgiIHgyPSI2MjIiIHkyPSIxOTYiIHN0cm9rZT0iI2UwZTBlMCIgc3Ryb2tlLXdpZHRoPSIwLjUiLz4KICA8cmVjdCB4PSIzOTAiIHk9IjQ4IiB3aWR0aD0iMzEwIiBoZWlnaHQ9IjE0OCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjODg4IiBzdHJva2Utd2lkdGg9IjEiLz4KICA8dGV4dCB4PSI1NDUiIHk9IjM4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjExIiBmb250LXdlaWdodD0iYm9sZCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmaWxsPSIjMzMzIj5JbnN0YW50YW5lb3VzIEZyZXF1ZW5jeTwvdGV4dD4KICA8dGV4dCB4PSI1NDUiIHk9IjIzMiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxMCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmaWxsPSIjNTU1Ij5UaW1lICjOvHMpPC90ZXh0PgogIDx0ZXh0IHg9IjM0OCIgeT0iMTIyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjEwIiBmb250LWZhbWlseT0iQXJpYWwiIGZpbGw9IiM1NTUiIHRyYW5zZm9ybT0icm90YXRlKC05MCwzNDgsMTIyKSI+RnJlcXVlbmN5IChNSHopPC90ZXh0PgoKPC9zdmc+" alt="Left: LFM chirp real part — Right: Instantaneous frequency sweep 0→5 MHz" class="matlab-figure-img" />
+                                <div class="matlab-figure-caption">Left: LFM chirp real part — Right: Instantaneous frequency sweep 0→5 MHz</div>
+                            </div>
                             <h4>📊 Code Tracing Values</h4>
                             <div class="trace-box">
                                 <p><strong>Input:</strong> None (generation from parameters)</p>
@@ -653,26 +658,31 @@ pulse = exp(1j*pi*k*t_pulse.^2);  % Generate LFM signal</code></pre>
                         <span class="block-number">Block 2</span>
                         <h3>Pulse Train Formation</h3>
                     </div>
-                    
+
                     <div class="card-body">
                         <div class="simple-explanation">
                             <h4>� What It Does</h4>
                             <p>Takes the single chirp pulse and repeats it 128 times with gaps in between. Like sending out 128 radar "pings" in a row.</p>
-                            
+
                             <h4>📐 Key Equations</h4>
                             <ul class="equation-list">
                                 <li><strong>PRI (Pulse Repetition Interval):</strong> Time between pulses = 35.6 μs</li>
                                 <li><strong>PRF (Pulse Repetition Frequency):</strong> $\text{PRF} = \frac{1}{\text{PRI}} = 28.09$ kHz</li>
                             </ul>
-                            
+
                             <h4>� MATLAB Code</h4>
                             <pre><code>for i = 1:num_pulses
     tx = [tx pulse zeros(1, pulse_gap)];  % Add pulse + gap
 end</code></pre>
-                            
+
                             <h4>💡 Why It Matters</h4>
                             <p>Multiple pulses let us measure velocity using the Doppler effect. Each pulse samples the target at a different time, and we can see how the phase changes from pulse to pulse (this tells us velocity). More pulses = better velocity accuracy.</p>
-                            
+
+
+                            <div class="matlab-figure-wrap">
+                                <img src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNzIwIDIyMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBzdHlsZT0iYmFja2dyb3VuZDojZjBmMGYwO2JvcmRlcjoxcHggc29saWQgI2NjYztib3JkZXItcmFkaXVzOjRweDtmb250LWZhbWlseTpBcmlhbCxzYW5zLXNlcmlmOyI+CiAgPHJlY3Qgd2lkdGg9IjcyMCIgaGVpZ2h0PSIyMjAiIGZpbGw9IiNmMGYwZjAiLz4KCiAgPHJlY3QgeD0iNjQiIHk9IjQ4IiB3aWR0aD0iNjM2IiBoZWlnaHQ9IjEyOCIgZmlsbD0id2hpdGUiIHN0cm9rZT0iI2FhYSIgc3Ryb2tlLXdpZHRoPSIwLjgiLz4KICA8Y2xpcFBhdGggaWQ9ImNwMSI+PHJlY3QgeD0iNjQiIHk9IjQ4IiB3aWR0aD0iNjM2IiBoZWlnaHQ9IjEyOCIvPjwvY2xpcFBhdGg+CiAgPGcgY2xpcC1wYXRoPSJ1cmwoI2NwMSkiPjxyZWN0IHg9IjE3OC4zIiB5PSI0OCIgd2lkdGg9IjQ0LjciIGhlaWdodD0iMTI4IiBmaWxsPSIjZjVmNWY1IiBvcGFjaXR5PSIwLjciLz48cmVjdCB4PSIzMzcuMyIgeT0iNDgiIHdpZHRoPSI0NC43IiBoZWlnaHQ9IjEyOCIgZmlsbD0iI2Y1ZjVmNSIgb3BhY2l0eT0iMC43Ii8+PHJlY3QgeD0iNDk2LjMiIHk9IjQ4IiB3aWR0aD0iNDQuNyIgaGVpZ2h0PSIxMjgiIGZpbGw9IiNmNWY1ZjUiIG9wYWNpdHk9IjAuNyIvPjxyZWN0IHg9IjY1NS4zIiB5PSI0OCIgd2lkdGg9IjQ0LjciIGhlaWdodD0iMTI4IiBmaWxsPSIjZjVmNWY1IiBvcGFjaXR5PSIwLjciLz48cG9seWxpbmUgcG9pbnRzPSI2NC4wLDYyLjggNjUuNiw2Mi45IDY3LjEsNjUuMCA2OC43LDczLjYgNzAuMyw5NC4zIDcxLjgsMTI2LjkgNzMuNCwxNTYuNiA3NS4wLDE1NC4yIDc2LjUsMTA3LjIgNzguMSw2My43IDc5LjcsOTUuNyA4MS4yLDE1OC42IDgyLjgsMTIwLjQgODQuNCw2My4yIDg1LjksMTM5LjYgODcuNSwxMjkuNiA4OS4xLDY2LjUgOTAuNiwxNTkuNSA5Mi4yLDc3LjAgOTMuOCwxMzIuNiA5NS4zLDEwMS4yIDk2LjksMTE5LjkgOTguNSw5OS43IDEwMC4wLDEzNS4zIDEwMS42LDczLjkgMTAzLjIsMTYwLjcgMTA0LjcsNjkuOSAxMDYuMywxMjAuOSAxMDcuOSwxNDcuNyAxMDkuNCw2Ni4zIDExMS4wLDEwNi45IDExMi42LDE2MS4yIDExNC4xLDExMi4wIDExNS43LDYzLjUgMTE3LjMsODguNSAxMTguOCwxMzkuOCAxMjAuNCwxNjEuMiAxMjIuMCwxNDcuMyAxMjMuNSwxMTkuNSAxMjUuMSw5NS41IDEyNi43LDgwLjggMTI4LjIsNzQuMCAxMjkuOCw3Mi42IDEzMS40LDc2LjAgMTMyLjksODUuNyAxMzQuNSwxMDQuMyAxMzYuMSwxMzEuMSAxMzcuNiwxNTYuMCAxMzkuMiwxNTcuNSAxNDAuOCwxMjAuMyAxNDIuMyw3MC45IDE0My45LDc1LjIgMTQ1LjUsMTQwLjMgMTQ3LjAsMTUxLjEgMTQ4LjYsNzUuMyAxNTAuMiw5My4yIDE1MS43LDE2MS4wIDE1My4zLDc4LjkgMTU0LjksMTA5LjkgMTU2LjQsMTQyLjcgMTU4LjAsNjcuMCAxNTkuNiwxNjEuMCAxNjEuMSw2My4wIDE2Mi43LDE2MC45IDE2NC4zLDYyLjggMTY1LjgsMTU5LjQgMTY3LjQsNzQuMSAxNjkuMCwxMjYuOCAxNzAuNSwxMzIuMCAxNzIuMSw2NC43IDE3My43LDE0OC4zIDE3NS4yLDEyOC43IDE3Ni44LDYzLjAgMTc4LjQsMTExLjkgMTc5LjksMTEyLjAgMTgxLjUsMTEyLjAgMTgzLjEsMTEyLjAgMTg0LjYsMTEyLjAgMTg2LjIsMTEyLjAgMTg3LjgsMTEyLjAgMTg5LjMsMTEyLjAgMTkwLjksMTEyLjAgMTkyLjUsMTEyLjAgMTk0LjAsMTEyLjAgMTk1LjYsMTEyLjAgMTk3LjIsMTEyLjAgMTk4LjcsMTEyLjAgMjAwLjMsMTEyLjAgMjAxLjksMTEyLjAgMjAzLjQsMTEyLjAgMjA1LjAsMTEyLjAgMjA2LjYsMTEyLjAgMjA4LjEsMTEyLjAgMjA5LjcsMTEyLjAgMjExLjMsMTEyLjAgMjEyLjgsMTEyLjAgMjE0LjQsMTEyLjAgMjE2LjAsMTEyLjAgMjE3LjUsMTEyLjAgMjE5LjEsMTEyLjAgMjIwLjcsMTEyLjAgMjIyLjIsMTEyLjAgMjIzLjgsNjIuOCAyMjUuMyw2My4xIDIyNi45LDY2LjUgMjI4LjUsNzguMSAyMzAuMCwxMDIuNyAyMzEuNiwxMzYuOSAyMzMuMiwxNjAuNSAyMzQuNywxNDQuNiAyMzYuMyw5MC43IDIzNy45LDYzLjcgMjM5LjQsMTE2LjggMjQxLjAsMTYwLjcgMjQyLjYsOTUuMSAyNDQuMSw3NC40IDI0NS43LDE1Ny45IDI0Ny4zLDk4LjIgMjQ4LjgsODkuMSAyNTAuNCwxNTUuOSAyNTIuMCw2Mi44IDI1My41LDE1OC44IDI1NS4xLDY4LjQgMjU2LjcsMTU1LjIgMjU4LjIsNjYuMSAyNTkuOCwxNjEuMSAyNjEuNCw2NS43IDI2Mi45LDE0MS4zIDI2NC41LDExNi44IDI2Ni4xLDcxLjAgMjY3LjYsMTU2LjQgMjY5LjIsMTE1LjEgMjcwLjgsNjMuNSAyNzIuMywxMjQuNSAyNzMuOSwxNjAuMyAyNzUuNSwxMTMuMyAyNzcuMCw2Ni41IDI3OC42LDczLjEgMjgwLjIsMTExLjcgMjgxLjcsMTQ1LjUgMjgzLjMsMTYwLjAgMjg0LjksMTU5LjkgMjg2LjQsMTU0LjQgMjg4LjAsMTUwLjEgMjg5LjYsMTUwLjEgMjkxLjEsMTU0LjMgMjkyLjcsMTU5LjggMjk0LjMsMTYwLjEgMjk1LjgsMTQ1LjkgMjk3LjQsMTEyLjUgMjk5LjAsNzMuOCAzMDAuNSw2Ni4xIDMwMi4xLDExMi4wIDMwMy43LDE2MC4xIDMwNS4yLDEyNi4wIDMwNi44LDYzLjggMzA4LjQsMTEzLjIgMzA5LjksMTU3LjIgMzExLjUsNzIuMyAzMTMuMSwxMTQuNSAzMTQuNiwxNDMuMiAzMTYuMiw2NC45IDMxNy44LDE2MC43IDMxOS4zLDY3LjIgMzIwLjksMTUzLjYgMzIyLjUsNzAuMCAzMjQuMCwxNTcuNiAzMjUuNiw2Mi45IDMyNy4yLDE1Ny41IDMyOC43LDg1LjcgMzMwLjMsMTAyLjEgMzMxLjksMTU2LjMgMzMzLjQsNzEuNyAzMzUuMCw5OS40IDMzNi42LDE2MS4yIDMzOC4xLDExMi4wIDMzOS43LDExMi4wIDM0MS4zLDExMi4wIDM0Mi44LDExMi4wIDM0NC40LDExMi4wIDM0Ni4wLDExMi4wIDM0Ny41LDExMi4wIDM0OS4xLDExMi4wIDM1MC43LDExMi4wIDM1Mi4yLDExMi4wIDM1My44LDExMi4wIDM1NS40LDExMi4wIDM1Ni45LDExMi4wIDM1OC41LDExMi4wIDM2MC4xLDExMi4wIDM2MS42LDExMi4wIDM2My4yLDExMi4wIDM2NC44LDExMi4wIDM2Ni4zLDExMi4wIDM2Ny45LDExMi4wIDM2OS41LDExMi4wIDM3MS4wLDExMi4wIDM3Mi42LDExMi4wIDM3NC4yLDExMi4wIDM3NS43LDExMi4wIDM3Ny4zLDExMi4wIDM3OC45LDExMi4wIDM4MC40LDExMi4wIDM4Mi4wLDExMi4wIDM4My42LDYyLjggMzg1LjEsNjMuNiAzODYuNyw2OC43IDM4OC4zLDgzLjcgMzg5LjgsMTEyLjAgMzkxLjQsMTQ2LjAgMzkzLjAsMTYxLjAgMzk0LjUsMTMxLjMgMzk2LjEsNzYuMyAzOTcuNyw3MS40IDM5OS4yLDEzNy42IDQwMC44LDE1MS41IDQwMi40LDczLjkgNDAzLjksOTcuOCA0MDUuNSwxNTkuNyA0MDcuMSw3Mi4xIDQwOC42LDEyMi44IDQxMC4yLDEyOS4xIDQxMS44LDc3LjQgNDEzLjMsMTU0LjggNDE0LjksNjYuNSA0MTYuNSwxNTcuMCA0MTguMCw3MS4yIDQxOS42LDE0MS43IDQyMS4yLDEwMy42IDQyMi43LDkwLjMgNDI0LjMsMTU4LjUgNDI1LjksNzEuMSA0MjcuNCwxMDcuMiA0MjkuMCwxNTkuOCA0MzAuNiw5MS4yIDQzMi4xLDY4LjMgNDMzLjcsMTI5LjcgNDM1LjMsMTYwLjkgNDM2LjgsMTI2LjYgNDM4LjQsNzkuOSA0NDAuMCw2Mi44IDQ0MS41LDc0LjcgNDQzLjEsOTcuNCA0NDQuNywxMTcuNCA0NDYuMiwxMjkuNyA0NDcuOCwxMzQuNiA0NDkuNCwxMzIuOCA0NTAuOSwxMjMuOSA0NTIuNSwxMDcuMiA0NTQuMSw4NC42IDQ1NS42LDY1LjUgNDU3LjIsNjcuOCA0NTguOCwxMDMuNiA0NjAuMywxNTEuMiA0NjEuOSwxNTIuOCA0NjMuNSw5Mi4wIDQ2NS4wLDY2LjUgNDY2LjYsMTM2LjMgNDY4LjIsMTQ2LjYgNDY5LjcsNjUuOCA0NzEuMywxMjIuOCA0NzIuOSwxNDAuOCA0NzQuNCw2NC4zIDQ3Ni4wLDE1OS4xIDQ3Ny42LDczLjkgNDc5LjEsMTQxLjQgNDgwLjcsODYuNCA0ODIuMywxMzkuOSA0ODMuOCw3Ni4zIDQ4NS40LDE1Ny4zIDQ4Ny4wLDYzLjAgNDg4LjUsMTQ3LjYgNDkwLjEsMTEyLjAgNDkxLjcsNzEuNyA0OTMuMiwxNTUuMyA0OTQuOCwxMjEuMSA0OTYuNCw2Mi44IDQ5Ny45LDExMi4wIDQ5OS41LDExMi4wIDUwMS4xLDExMi4wIDUwMi42LDExMi4wIDUwNC4yLDExMi4wIDUwNS44LDExMi4wIDUwNy4zLDExMi4wIDUwOC45LDExMi4wIDUxMC41LDExMi4wIDUxMi4wLDExMi4wIDUxMy42LDExMi4wIDUxNS4yLDExMi4wIDUxNi43LDExMi4wIDUxOC4zLDExMi4wIDUxOS45LDExMi4wIDUyMS40LDExMi4wIDUyMy4wLDExMi4wIDUyNC42LDExMi4wIDUyNi4xLDExMi4wIDUyNy43LDExMi4wIDUyOS4zLDExMi4wIDUzMC44LDExMi4wIDUzMi40LDExMi4wIDUzNC4wLDExMi4wIDUzNS41LDExMi4wIDUzNy4xLDExMi4wIDUzOC43LDExMi4wIDU0MC4yLDExMi4wIDU0MS44LDExMi4wIDU0My4zLDYyLjggNTQ0LjksNjQuNCA1NDYuNSw3MS43IDU0OC4wLDkwLjUgNTQ5LjYsMTIxLjkgNTUxLjIsMTUzLjYgNTUyLjcsMTU3LjUgNTU0LjMsMTE1LjUgNTU1LjksNjYuNCA1NTcuNCw4Ni4yIDU1OS4wLDE1My42IDU2MC42LDEzMi40IDU2Mi4xLDYzLjMgNTYzLjcsMTI2LjQgNTY1LjMsMTQzLjIgNTY2LjgsNjIuOCA1NjguNCwxNTEuNyA1NzAuMCw5Mi41IDU3MS41LDExMy4yIDU3My4xLDEyMi4xIDU3NC43LDk4LjAgNTc2LjIsMTIyLjcgNTc3LjgsMTEyLjAgNTc5LjQsOTQuMiA1ODAuOSwxNTAuMiA1ODIuNSw2Mi44IDU4NC4xLDE0NS45IDU4NS42LDEyMi4zIDU4Ny4yLDY0LjIgNTg4LjgsMTM3LjIgNTkwLjMsMTUwLjEgNTkxLjksODAuOCA1OTMuNSw2OS42IDU5NS4wLDEyMy4zIDU5Ni42LDE2MC4wIDU5OC4yLDE0OC4xIDU5OS43LDExMi4zIDYwMS4zLDgxLjggNjAyLjksNjYuNSA2MDQuNCw2Mi44IDYwNi4wLDYzLjcgNjA3LjYsNjQuNCA2MDkuMSw2My41IDYxMC43LDYyLjkgNjEyLjMsNjcuNiA2MTMuOCw4NC43IDYxNS40LDExNi44IDYxNy4wLDE1MS42IDYxOC41LDE1OC4zIDYyMC4xLDExNi4xIDYyMS43LDY2LjEgNjIzLjIsODguMyA2MjQuOCwxNTUuNiA2MjYuNCwxMjcuNCA2MjcuOSw2Mi44IDYyOS41LDEzNC4yIDYzMS4xLDEzNC45IDYzMi42LDY0LjcgNjM0LjIsMTU3LjkgNjM1LjgsODAuMiA2MzcuMywxMjguOSA2MzguOSwxMDQuNyA2NDAuNSwxMTYuOCA2NDIuMCwxMDIuMyA2NDMuNiwxMzMuMyA2NDUuMiw3NS4xIDY0Ni43LDE2MC41IDY0OC4zLDY5LjUgNjQ5LjksMTIxLjMgNjUxLjQsMTQ3LjcgNjUzLjAsNjYuNSA2NTQuNiwxMDUuOSA2NTYuMSwxNjEuMiA2NTcuNywxMTIuMCA2NTkuMywxMTIuMCA2NjAuOCwxMTIuMCA2NjIuNCwxMTIuMCA2NjQuMCwxMTIuMCA2NjUuNSwxMTIuMCA2NjcuMSwxMTIuMCA2NjguNywxMTIuMCA2NzAuMiwxMTIuMCA2NzEuOCwxMTIuMCA2NzMuNCwxMTIuMCA2NzQuOSwxMTIuMCA2NzYuNSwxMTIuMCA2NzguMSwxMTIuMCA2NzkuNiwxMTIuMCA2ODEuMiwxMTIuMCA2ODIuOCwxMTIuMCA2ODQuMywxMTIuMCA2ODUuOSwxMTIuMCA2ODcuNSwxMTIuMCA2ODkuMCwxMTIuMCA2OTAuNiwxMTIuMCA2OTIuMiwxMTIuMCA2OTMuNywxMTIuMCA2OTUuMywxMTIuMCA2OTYuOSwxMTIuMCA2OTguNCwxMTIuMCA3MDAuMCwxMTIuMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDA3MkJEIiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxsaW5lIHgxPSI2NCIgeTE9IjE2MS4yIiB4Mj0iNjAiIHkyPSIxNjEuMiIgc3Ryb2tlPSIjODg4IiBzdHJva2Utd2lkdGg9IjAuOCIvPjx0ZXh0IHg9IjU4IiB5PSIxNjUuMiIgdGV4dC1hbmNob3I9ImVuZCIgZm9udC1zaXplPSI5IiBmb250LWZhbWlseT0iQXJpYWwiIGZpbGw9IiM1NTUiPi0xPC90ZXh0PjxsaW5lIHgxPSI2NCIgeTE9IjExMi4wIiB4Mj0iNjAiIHkyPSIxMTIuMCIgc3Ryb2tlPSIjODg4IiBzdHJva2Utd2lkdGg9IjAuOCIvPjx0ZXh0IHg9IjU4IiB5PSIxMTYuMCIgdGV4dC1hbmNob3I9ImVuZCIgZm9udC1zaXplPSI5IiBmb250LWZhbWlseT0iQXJpYWwiIGZpbGw9IiM1NTUiPjA8L3RleHQ+PGxpbmUgeDE9IjY0IiB5MT0iNjIuOCIgeDI9IjYwIiB5Mj0iNjIuOCIgc3Ryb2tlPSIjODg4IiBzdHJva2Utd2lkdGg9IjAuOCIvPjx0ZXh0IHg9IjU4IiB5PSI2Ni44IiB0ZXh0LWFuY2hvcj0iZW5kIiBmb250LXNpemU9IjkiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZmlsbD0iIzU1NSI+MTwvdGV4dD48bGluZSB4MT0iNjQuMCIgeTE9IjE3NiIgeDI9IjY0LjAiIHkyPSIxODAiIHN0cm9rZT0iIzg4OCIgc3Ryb2tlLXdpZHRoPSIwLjgiLz48dGV4dCB4PSI2NC4wIiB5PSIxOTAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iOSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmaWxsPSIjNTU1Ij4wPC90ZXh0PjxsaW5lIHgxPSIyMjAuNCIgeTE9IjE3NiIgeDI9IjIyMC40IiB5Mj0iMTgwIiBzdHJva2U9IiM4ODgiIHN0cm9rZS13aWR0aD0iMC44Ii8+PHRleHQgeD0iMjIwLjQiIHk9IjE5MCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSI5IiBmb250LWZhbWlseT0iQXJpYWwiIGZpbGw9IiM1NTUiPjM1PC90ZXh0PjxsaW5lIHgxPSIzODEuMiIgeTE9IjE3NiIgeDI9IjM4MS4yIiB5Mj0iMTgwIiBzdHJva2U9IiM4ODgiIHN0cm9rZS13aWR0aD0iMC44Ii8+PHRleHQgeD0iMzgxLjIiIHk9IjE5MCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSI5IiBmb250LWZhbWlseT0iQXJpYWwiIGZpbGw9IiM1NTUiPjcxPC90ZXh0PjxsaW5lIHgxPSI1NDIuMSIgeTE9IjE3NiIgeDI9IjU0Mi4xIiB5Mj0iMTgwIiBzdHJva2U9IiM4ODgiIHN0cm9rZS13aWR0aD0iMC44Ii8+PHRleHQgeD0iNTQyLjEiIHk9IjE5MCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSI5IiBmb250LWZhbWlseT0iQXJpYWwiIGZpbGw9IiM1NTUiPjEwNzwvdGV4dD48bGluZSB4MT0iNjk4LjQiIHkxPSIxNzYiIHgyPSI2OTguNCIgeTI9IjE4MCIgc3Ryb2tlPSIjODg4IiBzdHJva2Utd2lkdGg9IjAuOCIvPjx0ZXh0IHg9IjY5OC40IiB5PSIxOTAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iOSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmaWxsPSIjNTU1Ij4xNDI8L3RleHQ+PHRleHQgeD0iMTIxLjIiIHk9IjYyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjkiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZmlsbD0iIzAwNzJCRCI+UDE8L3RleHQ+PHRleHQgeD0iMjgwLjIiIHk9IjYyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjkiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZmlsbD0iIzAwNzJCRCI+UDI8L3RleHQ+PHRleHQgeD0iNDM5LjIiIHk9IjYyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjkiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZmlsbD0iIzAwNzJCRCI+UDM8L3RleHQ+PHRleHQgeD0iNTk4LjIiIHk9IjYyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjkiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZmlsbD0iIzAwNzJCRCI+UDQ8L3RleHQ+PC9nPgogIDxsaW5lIHgxPSI2NCIgeTE9IjgwIiB4Mj0iNzAwIiB5Mj0iODAiIHN0cm9rZT0iI2UwZTBlMCIgc3Ryb2tlLXdpZHRoPSIwLjUiLz48bGluZSB4MT0iNjQiIHkxPSIxMTIiIHgyPSI3MDAiIHkyPSIxMTIiIHN0cm9rZT0iI2UwZTBlMCIgc3Ryb2tlLXdpZHRoPSIwLjUiLz48bGluZSB4MT0iNjQiIHkxPSIxNDQiIHgyPSI3MDAiIHkyPSIxNDQiIHN0cm9rZT0iI2UwZTBlMCIgc3Ryb2tlLXdpZHRoPSIwLjUiLz4KICA8bGluZSB4MT0iMjIzIiB5MT0iNDgiIHgyPSIyMjMiIHkyPSIxNzYiIHN0cm9rZT0iI2UwZTBlMCIgc3Ryb2tlLXdpZHRoPSIwLjUiLz48bGluZSB4MT0iMzgyIiB5MT0iNDgiIHgyPSIzODIiIHkyPSIxNzYiIHN0cm9rZT0iI2UwZTBlMCIgc3Ryb2tlLXdpZHRoPSIwLjUiLz48bGluZSB4MT0iNTQxIiB5MT0iNDgiIHgyPSI1NDEiIHkyPSIxNzYiIHN0cm9rZT0iI2UwZTBlMCIgc3Ryb2tlLXdpZHRoPSIwLjUiLz4KICA8cmVjdCB4PSI2NCIgeT0iNDgiIHdpZHRoPSI2MzYiIGhlaWdodD0iMTI4IiBmaWxsPSJub25lIiBzdHJva2U9IiM4ODgiIHN0cm9rZS13aWR0aD0iMSIvPgogIDx0ZXh0IHg9IjM4MiIgeT0iMzgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iMTEiIGZvbnQtd2VpZ2h0PSJib2xkIiBmb250LWZhbWlseT0iQXJpYWwiIGZpbGw9IiMzMzMiPlB1bHNlIFRyYWluIOKAlCBGaXJzdCA0IFB1bHNlcyAoUmVhbCBQYXJ0KTwvdGV4dD4KICA8dGV4dCB4PSIzODIiIHk9IjIxMiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxMCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmaWxsPSIjNTU1Ij5UaW1lICjOvHMpPC90ZXh0PgogIDx0ZXh0IHg9IjIyIiB5PSIxMTIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iMTAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZmlsbD0iIzU1NSIgdHJhbnNmb3JtPSJyb3RhdGUoLTkwLDIyLDExMikiPkFtcGxpdHVkZTwvdGV4dD4KICAKCjwvc3ZnPg==" alt="First 4 pulses of the pulse train — shaded gaps show the 200-sample silent intervals" class="matlab-figure-img" />
+                                <div class="matlab-figure-caption">First 4 pulses of the pulse train — shaded gaps show the 200-sample silent intervals</div>
+                            </div>
                             <h4>📊 Code Tracing Values</h4>
                             <div class="trace-box">
                                 <p><strong>Input:</strong> Single <code>pulse</code> ∈ ℂ⁵¹²</p>
@@ -690,29 +700,29 @@ end</code></pre>
                         <span class="block-number">Block 3</span>
                         <h3>Channel Propagation & Doppler Shift</h3>
                     </div>
-                    
+
                     <div class="card-body">
                         <div class="simple-explanation">
                             <h4>� What It Does</h4>
                             <p>Simulates what happens when the signal travels to the target and back. Two things happen: (1) the signal gets <strong>delayed</strong> (tells us range), and (2) the frequency gets <strong>shifted</strong> (tells us velocity).</p>
-                            
+
                             <h4>📐 Key Equations</h4>
                             <ul class="equation-list">
                                 <li><strong>Delay Time:</strong> $\tau = \frac{2R}{c} = 3.33$ μs (signal travels 500m + 500m back)</li>
                                 <li><strong>Doppler Shift:</strong> $f_d = \frac{2v}{\lambda} = 3200$ Hz (moving target changes frequency)</li>
                                 <li><strong>Received Signal:</strong> Delayed copy with frequency shift applied</li>
                             </ul>
-                            
+
                             <h4>� MATLAB Code</h4>
                             <pre><code>tau = 2 * target_range / c;        % Calculate delay
 rx = [zeros(1, delay_samples) tx]; % Delay signal
 
 fd = 2 * target_velocity / lambda; % Calculate Doppler
 rx = rx .* exp(1j*2*pi*fd*t);      % Apply Doppler shift</code></pre>
-                            
+
                             <h4>� Why It Matters</h4>
                             <p>This is the physics of radar! The delay tells us <strong>how far</strong> (500m → 3.33 μs delay), and the Doppler tells us <strong>how fast</strong> (200 m/s → 3200 Hz shift). The rest of the system is about extracting these two pieces of information from the noisy received signal.</p>
-                            
+
                             <h4>📊 Code Tracing Values</h4>
                             <div class="trace-box">
                                 <p><strong>Input:</strong> <code>tx</code> ∈ ℂ⁹¹'¹³⁶</p>
@@ -729,23 +739,23 @@ rx = rx .* exp(1j*2*pi*fd*t);      % Apply Doppler shift</code></pre>
                         <span class="block-number">Block 4</span>
                         <h3>Additive White Gaussian Noise (AWGN)</h3>
                     </div>
-                    
+
                     <div class="card-body">
                         <div class="simple-explanation">
                             <h4>� What It Does</h4>
                             <p>Adds random noise to the signal to make it realistic. Real radar always has noise from electronics, atmosphere, etc.</p>
-                            
+
                             <h4>📐 Key Equations</h4>
                             <ul class="equation-list">
                                 <li><strong>Noise Model:</strong> $n(t) \sim \mathcal{CN}(0, \sigma^2)$ (complex Gaussian noise)</li>
                                 <li><strong>Noise Power:</strong> $\sigma^2 = 0.01$ → SNR ≈ 20 dB before processing</li>
                             </ul>
-                            
+
                             <h4>� MATLAB Code</h4>
                             <pre><code>noise_power = 0.01;
 noise = sqrt(noise_power/2) * (randn(size(rx)) + 1j*randn(size(rx)));
 rx = rx + noise;  % Add noise to received signal</code></pre>
-                            
+
                             <h4>� Why It Matters</h4>
                             <p>Testing with noise proves the system works in realistic conditions. The matched filter will later improve SNR from 20 dB to ~44 dB (24 dB gain). This shows our processing is robust!</p>
                         </div>
@@ -758,23 +768,23 @@ rx = rx + noise;  % Add noise to received signal</code></pre>
                         <span class="block-number">Block 5</span>
                         <h3>Slow-Time / Fast-Time Matrix Formation</h3>
                     </div>
-                    
+
                     <div class="card-body">
                         <div class="simple-explanation">
                             <h4>� What It Does</h4>
                             <p>Reorganizes the long 1D signal into a 2D matrix (table). Rows = range bins, Columns = pulse numbers. This makes it easy to process range and Doppler separately.</p>
-                            
+
                             <h4>📐 Key Concept</h4>
                             <ul class="equation-list">
                                 <li><strong>Fast-Time (down):</strong> Each row is a range bin (like 0m, 7.5m, 15m, ...)</li>
                                 <li><strong>Slow-Time (across):</strong> Each column is a pulse number (1, 2, 3, ..., 128)</li>
                                 <li><strong>Matrix Size:</strong> 712 rows × 128 columns</li>
                             </ul>
-                            
+
                             <h4>🔢 MATLAB Code</h4>
                             <pre><code>rx_matrix = reshape(rx, pulse_total_len, num_pulses);
 % Now: rows = range bins, columns = pulses</code></pre>
-                            
+
                             <h4>💡 Why It Matters</h4>
                             <p>Think of it like a spreadsheet: look down a column to see one pulse at all ranges, or look across a row to see one range across all pulses. This makes it easy to process range (down columns) and Doppler (across rows) separately.</p>
                         </div>
@@ -787,26 +797,26 @@ rx = rx + noise;  % Add noise to received signal</code></pre>
                         <span class="block-number">Block 6</span>
                         <h3>Matched Filter (Pulse Compression)</h3>
                     </div>
-                    
+
                     <div class="card-body">
                         <div class="simple-explanation">
                             <h4>� What It Does</h4>
                             <p>This is the magic step! Compresses the long 25.6 μs chirp into a sharp peak. Like squeezing a sponge - the energy concentrates into a narrow pulse, making it easy to see where the target is.</p>
-                            
+
                             <h4>📐 Key Equations</h4>
                             <ul class="equation-list">
                                 <li><strong>Filter:</strong> $h(t) = s^*(-t)$ (time-reversed conjugate of transmitted pulse)</li>
                                 <li><strong>Operation:</strong> Convolution (cross-correlation) with each received pulse</li>
                                 <li><strong>Gain:</strong> Processing gain = 24.1 dB (SNR improves from 20 dB to 44 dB!)</li>
                             </ul>
-                            
+
                             <h4>� MATLAB Code</h4>
                             <pre><code>tx_mf = conj(fliplr(pulse));  % Create matched filter
 for i = 1:num_pulses
     corr = conv(rx_matrix(:,i), tx_mf, 'full');  % Compress
     range_matrix(:,i) = corr;  % Store result
 end</code></pre>
-                            
+
                             <h4>� Why It Matters</h4>
                             <p><strong>Key benefit:</strong> Turns a long pulse (bad resolution) into a short peak (good resolution). The 5 MHz bandwidth gives us 30m range resolution. Also adds 24 dB processing gain - makes the target much easier to detect in noise!</p>
                         </div>
@@ -819,24 +829,24 @@ end</code></pre>
                         <span class="block-number">Block 7</span>
                         <h3>Range Estimation</h3>
                     </div>
-                    
+
                     <div class="card-body">
                         <div class="simple-explanation">
                             <h4>� What It Does</h4>
                             <p>Finds which range bin has the strongest signal. That's where the target is! Then converts the bin number to actual distance in meters.</p>
-                            
+
                             <h4>📐 Key Equations</h4>
                             <ul class="equation-list">
                                 <li><strong>Range Formula:</strong> $R = n \cdot \frac{c}{2f_s}$ where $n$ is bin number</li>
                                 <li><strong>Bin Spacing:</strong> Each bin = 7.5 m</li>
                                 <li><strong>Method:</strong> Sum across all 128 pulses, find the peak</li>
                             </ul>
-                            
+
                             <h4>� MATLAB Code</h4>
                             <pre><code>[~, range_bin] = max(sum(abs(range_matrix), 2));  % Find peak bin
 range_axis = (0:pulse_total_len-1) * (c/(2*fs));   % Convert to meters
 range_est = range_axis(range_bin);                 % Get range estimate</code></pre>
-                            
+
                             <h4>� Why It Matters</h4>
                             <p>This gives us the final range answer! For our target at 500m, we find the peak around bin 67. Summing across all 128 pulses adds another 21 dB of SNR improvement (on top of the 24 dB from matched filter).</p>
                         </div>
@@ -849,19 +859,19 @@ range_est = range_axis(range_bin);                 % Get range estimate</code></
                         <span class="block-number">Block 8</span>
                         <h3>Doppler Processing (Slow-Time FFT)</h3>
                     </div>
-                    
+
                     <div class="card-body">
                         <div class="simple-explanation">
                             <h4>� What It Does</h4>
                             <p>Now we know the range, extract that range bin and look at how it changes across the 128 pulses. FFT converts this into frequency domain to find the Doppler shift.</p>
-                            
+
                             <h4>📐 Key Equations</h4>
                             <ul class="equation-list">
                                 <li><strong>Doppler FFT:</strong> 1024-point FFT across 128 pulses</li>
                                 <li><strong>Velocity from Doppler:</strong> $v = \frac{f_d \lambda}{2}$</li>
                                 <li><strong>Frequency Resolution:</strong> 27.4 Hz per bin</li>
                             </ul>
-                            
+
                             <h4>� MATLAB Code</h4>
                             <pre><code>slow_time_signal = range_matrix(range_bin, :);
 slow_time_signal = detrend(slow_time_signal);          % Remove DC
@@ -869,7 +879,7 @@ slow_time_signal = slow_time_signal .* hamming(128).'; % Window
 
 doppler_fft = fftshift(fft(slow_time_signal, 1024));   % FFT
 f_axis = (-512:511)*(PRF/1024);                        % Frequency axis</code></pre>
-                            
+
                             <h4>� Why It Matters</h4>
                             <p>The FFT finds the Doppler frequency (3200 Hz), which we convert to velocity (200 m/s) using $v = f_d\lambda/2$. Detrend removes stationary clutter, Hamming reduces sidelobes. The peak in the spectrum tells us how fast the target is moving!</p>
                         </div>
@@ -882,19 +892,19 @@ f_axis = (-512:511)*(PRF/1024);                        % Frequency axis</code></
                         <span class="block-number">Block 9</span>
                         <h3>Quadratic Peak Interpolation</h3>
                     </div>
-                    
+
                     <div class="card-body">
                         <div class="simple-explanation">
                             <h4>� What It Does</h4>
                             <p>FFT bins are discrete, but the true peak might be between bins. This uses the peak and its neighbors to estimate the exact frequency with sub-bin accuracy. Like refining your measurement!</p>
-                            
+
                             <h4>📐 Key Equations</h4>
                             <ul class="equation-list">
                                 <li><strong>Parabolic Fit:</strong> $\delta = \frac{0.5(\alpha - \gamma)}{\alpha - 2\beta + \gamma}$ (fits parabola through 3 points)</li>
                                 <li><strong>Refined Frequency:</strong> $\hat{f}_d = f[k] + \delta \cdot \Delta f$</li>
                                 <li><strong>Accuracy:</strong> Improves from ±0.11 m/s to ±0.01 m/s</li>
                             </ul>
-                            
+
                             <h4>� MATLAB Code</h4>
                             <pre><code>alpha = abs(doppler_fft(idx_fd-1));  % Left neighbor
 beta  = abs(doppler_fft(idx_fd));    % Peak
@@ -903,7 +913,7 @@ gamma = abs(doppler_fft(idx_fd+1));  % Right neighbor
 delta = 0.5 * (alpha-gamma)/(alpha-2*beta+gamma);  % Offset
 fd_est = f_axis(idx_fd) + delta*(PRF/N_fft);       % Refined freq
 velocity_est = (fd_est * lambda)/2;                 % Final velocity</code></pre>
-                            
+
                             <h4>💡 Why It Matters</h4>
                             <p>Without interpolation, we're limited to bin spacing accuracy. With it, we get 10x better precision! This is important for accurate velocity measurement, especially for slow-moving targets.</p>
                         </div>
@@ -916,19 +926,19 @@ velocity_est = (fd_est * lambda)/2;                 % Final velocity</code></pre
                         <span class="block-number">Block 10</span>
                         <h3>2D Range-Doppler Map Generation</h3>
                     </div>
-                    
+
                     <div class="card-body">
                         <div class="simple-explanation">
                             <h4>� What It Does</h4>
                             <p>Creates the final 2D image showing ALL targets at ALL ranges and ALL velocities simultaneously. This is the complete radar picture!</p>
-                            
+
                             <h4>📐 Key Equations</h4>
                             <ul class="equation-list">
                                 <li><strong>2D Processing:</strong> FFT along slow-time (Doppler) for each range bin</li>
                                 <li><strong>Output Size:</strong> 712 range bins × 1024 Doppler bins</li>
                                 <li><strong>Display:</strong> $P_{\text{dB}} = 20\log_{10}(|S|)$ (convert to dB for visualization)</li>
                             </ul>
-                            
+
                             <h4>� MATLAB Code</h4>
                             <pre><code>range_window = hamming(pulse_total_len);
 doppler_window = hamming(num_pulses);
@@ -942,7 +952,7 @@ velocity_axis = (f_axis * lambda)/2;
 
 imagesc(range_axis, velocity_axis, 20*log10(RD_map_abs.'));
 xlabel('Range (m)'); ylabel('Velocity (m/s)');</code></pre>
-                            
+
                             <h4>� Why It Matters</h4>
                             <p><strong>This is the final output!</strong> A 2D image where the X-axis is range (0-5000m) and Y-axis is velocity (-1750 to +1750 m/s). Our target appears as a bright spot at (500m, 200 m/s). In a real radar, multiple targets would show up as multiple bright spots. The map shows everything at once - no need to process range and velocity separately!</p>
                         </div>
@@ -972,7 +982,17 @@ G_MF_dB    = 10*log10(B*T);         % ~24.1 dB
 SNR_MF_dB  = SNR_in_dB + G_MF_dB;
 G_CI_dB    = 10*log10(num_pulses);  % ~21 dB
 SNR_CI_dB  = SNR_MF_dB + G_CI_dB;</code></pre>
+
+                            <div class="matlab-figure-wrap">
+                                <img src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNzIwIDI0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBzdHlsZT0iYmFja2dyb3VuZDojZjBmMGYwO2JvcmRlcjoxcHggc29saWQgI2NjYztib3JkZXItcmFkaXVzOjRweDtmb250LWZhbWlseTpBcmlhbCxzYW5zLXNlcmlmOyI+CiAgPHJlY3Qgd2lkdGg9IjcyMCIgaGVpZ2h0PSIyNDAiIGZpbGw9IiNmMGYwZjAiLz4KCiAgPHJlY3QgeD0iNjQiIHk9IjQ4IiB3aWR0aD0iNjM2IiBoZWlnaHQ9IjE0OCIgZmlsbD0id2hpdGUiIHN0cm9rZT0iI2FhYSIgc3Ryb2tlLXdpZHRoPSIwLjgiLz4KICA8Y2xpcFBhdGggaWQ9ImNwMSI+PHJlY3QgeD0iNjQiIHk9IjQ4IiB3aWR0aD0iNjM2IiBoZWlnaHQ9IjE0OCIvPjwvY2xpcFBhdGg+CiAgPGcgY2xpcC1wYXRoPSJ1cmwoI2NwMSkiPjxyZWN0IHg9IjE1NCIgeT0iMTUzLjciIHdpZHRoPSI5MCIgaGVpZ2h0PSI0Mi4zIiBmaWxsPSIjRURCMTIwIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjAuNSIgcng9IjIiLz48dGV4dCB4PSIxOTkiIHk9IjE0OS43IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjEwIiBmb250LXdlaWdodD0iYm9sZCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmaWxsPSIjMzMzIj4yMC4wPC90ZXh0Pjx0ZXh0IHg9IjE5OSIgeT0iMjEyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjkiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZmlsbD0iIzU1NSI+SW5wdXQgU05SPC90ZXh0PjxyZWN0IHg9IjMzNCIgeT0iMTA5LjEiIHdpZHRoPSI5MCIgaGVpZ2h0PSI4Ni45IiBmaWxsPSIjMDA3MkJEIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjAuNSIgcng9IjIiLz48dGV4dCB4PSIzNzkiIHk9IjEwNS4xIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjEwIiBmb250LXdlaWdodD0iYm9sZCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmaWxsPSIjMzMzIj40MS4xPC90ZXh0Pjx0ZXh0IHg9IjM3OSIgeT0iMjEyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjkiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZmlsbD0iIzU1NSI+QWZ0ZXIgTUY8L3RleHQ+PHJlY3QgeD0iNTE0IiB5PSI2NC42IiB3aWR0aD0iOTAiIGhlaWdodD0iMTMxLjQiIGZpbGw9IiM3N0FDMzAiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMC41IiByeD0iMiIvPjx0ZXh0IHg9IjU1OSIgeT0iNjAuNiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxMCIgZm9udC13ZWlnaHQ9ImJvbGQiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZmlsbD0iIzMzMyI+NjIuMTwvdGV4dD48dGV4dCB4PSI1NTkiIHk9IjIxMiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSI5IiBmb250LWZhbWlseT0iQXJpYWwiIGZpbGw9IiM1NTUiPkFmdGVyIENJPC90ZXh0PjxsaW5lIHgxPSI2NCIgeTE9IjE5Ni4wIiB4Mj0iNjAiIHkyPSIxOTYuMCIgc3Ryb2tlPSIjODg4IiBzdHJva2Utd2lkdGg9IjAuOCIvPjx0ZXh0IHg9IjU4IiB5PSIyMDAuMCIgdGV4dC1hbmNob3I9ImVuZCIgZm9udC1zaXplPSI5IiBmb250LWZhbWlseT0iQXJpYWwiIGZpbGw9IiM1NTUiPjA8L3RleHQ+PGxpbmUgeDE9IjY0IiB5MT0iMTUzLjciIHgyPSI2MCIgeTI9IjE1My43IiBzdHJva2U9IiM4ODgiIHN0cm9rZS13aWR0aD0iMC44Ii8+PHRleHQgeD0iNTgiIHk9IjE1Ny43IiB0ZXh0LWFuY2hvcj0iZW5kIiBmb250LXNpemU9IjkiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZmlsbD0iIzU1NSI+MjA8L3RleHQ+PGxpbmUgeDE9IjY0IiB5MT0iMTExLjQiIHgyPSI2MCIgeTI9IjExMS40IiBzdHJva2U9IiM4ODgiIHN0cm9rZS13aWR0aD0iMC44Ii8+PHRleHQgeD0iNTgiIHk9IjExNS40IiB0ZXh0LWFuY2hvcj0iZW5kIiBmb250LXNpemU9IjkiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZmlsbD0iIzU1NSI+NDA8L3RleHQ+PGxpbmUgeDE9IjY0IiB5MT0iNjkuMSIgeDI9IjYwIiB5Mj0iNjkuMSIgc3Ryb2tlPSIjODg4IiBzdHJva2Utd2lkdGg9IjAuOCIvPjx0ZXh0IHg9IjU4IiB5PSI3My4xIiB0ZXh0LWFuY2hvcj0iZW5kIiBmb250LXNpemU9IjkiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZmlsbD0iIzU1NSI+NjA8L3RleHQ+PGxpbmUgeDE9IjE5OSIgeTE9IjEwOS4xIiB4Mj0iMzc5IiB5Mj0iMTA5LjEiIHN0cm9rZT0iIzU1NSIgc3Ryb2tlLXdpZHRoPSIwLjgiIHN0cm9rZS1kYXNoYXJyYXk9IjMsMiIvPjx0ZXh0IHg9IjI4OSIgeT0iMTA1LjEiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iOCIgZmlsbD0iIzU1NSI+KzIxLjEgZEI8L3RleHQ+PGxpbmUgeDE9IjM3OSIgeTE9IjY0LjYiIHgyPSI1NTkiIHkyPSI2NC42IiBzdHJva2U9IiM1NTUiIHN0cm9rZS13aWR0aD0iMC44IiBzdHJva2UtZGFzaGFycmF5PSIzLDIiLz48dGV4dCB4PSI0NjkiIHk9IjYwLjYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iOCIgZmlsbD0iIzU1NSI+KzIxLjEgZEI8L3RleHQ+PC9nPgogIDxsaW5lIHgxPSI2NCIgeTE9Ijg1IiB4Mj0iNzAwIiB5Mj0iODUiIHN0cm9rZT0iI2UwZTBlMCIgc3Ryb2tlLXdpZHRoPSIwLjUiLz48bGluZSB4MT0iNjQiIHkxPSIxMjIiIHgyPSI3MDAiIHkyPSIxMjIiIHN0cm9rZT0iI2UwZTBlMCIgc3Ryb2tlLXdpZHRoPSIwLjUiLz48bGluZSB4MT0iNjQiIHkxPSIxNTkiIHgyPSI3MDAiIHkyPSIxNTkiIHN0cm9rZT0iI2UwZTBlMCIgc3Ryb2tlLXdpZHRoPSIwLjUiLz4KICA8bGluZSB4MT0iMjIzIiB5MT0iNDgiIHgyPSIyMjMiIHkyPSIxOTYiIHN0cm9rZT0iI2UwZTBlMCIgc3Ryb2tlLXdpZHRoPSIwLjUiLz48bGluZSB4MT0iMzgyIiB5MT0iNDgiIHgyPSIzODIiIHkyPSIxOTYiIHN0cm9rZT0iI2UwZTBlMCIgc3Ryb2tlLXdpZHRoPSIwLjUiLz48bGluZSB4MT0iNTQxIiB5MT0iNDgiIHgyPSI1NDEiIHkyPSIxOTYiIHN0cm9rZT0iI2UwZTBlMCIgc3Ryb2tlLXdpZHRoPSIwLjUiLz4KICA8cmVjdCB4PSI2NCIgeT0iNDgiIHdpZHRoPSI2MzYiIGhlaWdodD0iMTQ4IiBmaWxsPSJub25lIiBzdHJva2U9IiM4ODgiIHN0cm9rZS13aWR0aD0iMSIvPgogIDx0ZXh0IHg9IjM4MiIgeT0iMzgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iMTEiIGZvbnQtd2VpZ2h0PSJib2xkIiBmb250LWZhbWlseT0iQXJpYWwiIGZpbGw9IiMzMzMiPlNOUiBhdCBFYWNoIFByb2Nlc3NpbmcgU3RhZ2U8L3RleHQ+CiAgPHRleHQgeD0iMzgyIiB5PSIyMzIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iMTAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZmlsbD0iIzU1NSI+PC90ZXh0PgogIDx0ZXh0IHg9IjIyIiB5PSIxMjIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iMTAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZmlsbD0iIzU1NSIgdHJhbnNmb3JtPSJyb3RhdGUoLTkwLDIyLDEyMikiPlNOUiAoZEIpPC90ZXh0PgogIAoKPC9zdmc+" alt="SNR improvement across processing stages — total gain of 42.14 dB" class="matlab-figure-img" />
+                                <div class="matlab-figure-caption">SNR improvement across processing stages — total gain of 42.14 dB</div>
+                            </div>
                             <h4>💡 Why It Matters</h4>
+                            <p>
+                                <div class="matlab-figure-wrap">
+                                    <img src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNzIwIDI0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBzdHlsZT0iYmFja2dyb3VuZDojZjBmMGYwO2JvcmRlcjoxcHggc29saWQgI2NjYztib3JkZXItcmFkaXVzOjRweDtmb250LWZhbWlseTpBcmlhbCxzYW5zLXNlcmlmOyI+CiAgPHJlY3Qgd2lkdGg9IjcyMCIgaGVpZ2h0PSIyNDAiIGZpbGw9IiNmMGYwZjAiLz4KCiAgPHJlY3QgeD0iNjQiIHk9IjQ4IiB3aWR0aD0iNjM2IiBoZWlnaHQ9IjE0OCIgZmlsbD0id2hpdGUiIHN0cm9rZT0iI2FhYSIgc3Ryb2tlLXdpZHRoPSIwLjgiLz4KICA8Y2xpcFBhdGggaWQ9ImNwMSI+PHJlY3QgeD0iNjQiIHk9IjQ4IiB3aWR0aD0iNjM2IiBoZWlnaHQ9IjE0OCIvPjwvY2xpcFBhdGg+CiAgPGcgY2xpcC1wYXRoPSJ1cmwoI2NwMSkiPjxyZWN0IHg9IjE1NCIgeT0iMTUzLjciIHdpZHRoPSI5MCIgaGVpZ2h0PSI0Mi4zIiBmaWxsPSIjRURCMTIwIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjAuNSIgcng9IjIiLz48dGV4dCB4PSIxOTkiIHk9IjE0OS43IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjEwIiBmb250LXdlaWdodD0iYm9sZCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmaWxsPSIjMzMzIj4yMC4wPC90ZXh0Pjx0ZXh0IHg9IjE5OSIgeT0iMjEyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjkiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZmlsbD0iIzU1NSI+SW5wdXQgU05SPC90ZXh0PjxyZWN0IHg9IjMzNCIgeT0iMTA5LjEiIHdpZHRoPSI5MCIgaGVpZ2h0PSI4Ni45IiBmaWxsPSIjMDA3MkJEIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjAuNSIgcng9IjIiLz48dGV4dCB4PSIzNzkiIHk9IjEwNS4xIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjEwIiBmb250LXdlaWdodD0iYm9sZCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmaWxsPSIjMzMzIj40MS4xPC90ZXh0Pjx0ZXh0IHg9IjM3OSIgeT0iMjEyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjkiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZmlsbD0iIzU1NSI+QWZ0ZXIgTUY8L3RleHQ+PHJlY3QgeD0iNTE0IiB5PSI2NC42IiB3aWR0aD0iOTAiIGhlaWdodD0iMTMxLjQiIGZpbGw9IiM3N0FDMzAiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMC41IiByeD0iMiIvPjx0ZXh0IHg9IjU1OSIgeT0iNjAuNiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxMCIgZm9udC13ZWlnaHQ9ImJvbGQiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZmlsbD0iIzMzMyI+NjIuMTwvdGV4dD48dGV4dCB4PSI1NTkiIHk9IjIxMiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSI5IiBmb250LWZhbWlseT0iQXJpYWwiIGZpbGw9IiM1NTUiPkFmdGVyIENJPC90ZXh0PjxsaW5lIHgxPSI2NCIgeTE9IjE5Ni4wIiB4Mj0iNjAiIHkyPSIxOTYuMCIgc3Ryb2tlPSIjODg4IiBzdHJva2Utd2lkdGg9IjAuOCIvPjx0ZXh0IHg9IjU4IiB5PSIyMDAuMCIgdGV4dC1hbmNob3I9ImVuZCIgZm9udC1zaXplPSI5IiBmb250LWZhbWlseT0iQXJpYWwiIGZpbGw9IiM1NTUiPjA8L3RleHQ+PGxpbmUgeDE9IjY0IiB5MT0iMTUzLjciIHgyPSI2MCIgeTI9IjE1My43IiBzdHJva2U9IiM4ODgiIHN0cm9rZS13aWR0aD0iMC44Ii8+PHRleHQgeD0iNTgiIHk9IjE1Ny43IiB0ZXh0LWFuY2hvcj0iZW5kIiBmb250LXNpemU9IjkiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZmlsbD0iIzU1NSI+MjA8L3RleHQ+PGxpbmUgeDE9IjY0IiB5MT0iMTExLjQiIHgyPSI2MCIgeTI9IjExMS40IiBzdHJva2U9IiM4ODgiIHN0cm9rZS13aWR0aD0iMC44Ii8+PHRleHQgeD0iNTgiIHk9IjExNS40IiB0ZXh0LWFuY2hvcj0iZW5kIiBmb250LXNpemU9IjkiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZmlsbD0iIzU1NSI+NDA8L3RleHQ+PGxpbmUgeDE9IjY0IiB5MT0iNjkuMSIgeDI9IjYwIiB5Mj0iNjkuMSIgc3Ryb2tlPSIjODg4IiBzdHJva2Utd2lkdGg9IjAuOCIvPjx0ZXh0IHg9IjU4IiB5PSI3My4xIiB0ZXh0LWFuY2hvcj0iZW5kIiBmb250LXNpemU9IjkiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZmlsbD0iIzU1NSI+NjA8L3RleHQ+PGxpbmUgeDE9IjE5OSIgeTE9IjEwOS4xIiB4Mj0iMzc5IiB5Mj0iMTA5LjEiIHN0cm9rZT0iIzU1NSIgc3Ryb2tlLXdpZHRoPSIwLjgiIHN0cm9rZS1kYXNoYXJyYXk9IjMsMiIvPjx0ZXh0IHg9IjI4OSIgeT0iMTA1LjEiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iOCIgZmlsbD0iIzU1NSI+KzIxLjEgZEI8L3RleHQ+PGxpbmUgeDE9IjM3OSIgeTE9IjY0LjYiIHgyPSI1NTkiIHkyPSI2NC42IiBzdHJva2U9IiM1NTUiIHN0cm9rZS13aWR0aD0iMC44IiBzdHJva2UtZGFzaGFycmF5PSIzLDIiLz48dGV4dCB4PSI0NjkiIHk9IjYwLjYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iOCIgZmlsbD0iIzU1NSI+KzIxLjEgZEI8L3RleHQ+PC9nPgogIDxsaW5lIHgxPSI2NCIgeTE9Ijg1IiB4Mj0iNzAwIiB5Mj0iODUiIHN0cm9rZT0iI2UwZTBlMCIgc3Ryb2tlLXdpZHRoPSIwLjUiLz48bGluZSB4MT0iNjQiIHkxPSIxMjIiIHgyPSI3MDAiIHkyPSIxMjIiIHN0cm9rZT0iI2UwZTBlMCIgc3Ryb2tlLXdpZHRoPSIwLjUiLz48bGluZSB4MT0iNjQiIHkxPSIxNTkiIHgyPSI3MDAiIHkyPSIxNTkiIHN0cm9rZT0iI2UwZTBlMCIgc3Ryb2tlLXdpZHRoPSIwLjUiLz4KICA8bGluZSB4MT0iMjIzIiB5MT0iNDgiIHgyPSIyMjMiIHkyPSIxOTYiIHN0cm9rZT0iI2UwZTBlMCIgc3Ryb2tlLXdpZHRoPSIwLjUiLz48bGluZSB4MT0iMzgyIiB5MT0iNDgiIHgyPSIzODIiIHkyPSIxOTYiIHN0cm9rZT0iI2UwZTBlMCIgc3Ryb2tlLXdpZHRoPSIwLjUiLz48bGluZSB4MT0iNTQxIiB5MT0iNDgiIHgyPSI1NDEiIHkyPSIxOTYiIHN0cm9rZT0iI2UwZTBlMCIgc3Ryb2tlLXdpZHRoPSIwLjUiLz4KICA8cmVjdCB4PSI2NCIgeT0iNDgiIHdpZHRoPSI2MzYiIGhlaWdodD0iMTQ4IiBmaWxsPSJub25lIiBzdHJva2U9IiM4ODgiIHN0cm9rZS13aWR0aD0iMSIvPgogIDx0ZXh0IHg9IjM4MiIgeT0iMzgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iMTEiIGZvbnQtd2VpZ2h0PSJib2xkIiBmb250LWZhbWlseT0iQXJpYWwiIGZpbGw9IiMzMzMiPlNOUiBhdCBFYWNoIFByb2Nlc3NpbmcgU3RhZ2U8L3RleHQ+CiAgPHRleHQgeD0iMzgyIiB5PSIyMzIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iMTAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZmlsbD0iIzU1NSI+PC90ZXh0PgogIDx0ZXh0IHg9IjIyIiB5PSIxMjIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iMTAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZmlsbD0iIzU1NSIgdHJhbnNmb3JtPSJyb3RhdGUoLTkwLDIyLDEyMikiPlNOUiAoZEIpPC90ZXh0PgogIAoKPC9zdmc+" alt="SNR improvement across processing stages — total gain of 42.14 dB" class="matlab-figure-img" />
+                                    <div class="matlab-figure-caption">SNR improvement across processing stages — total gain of 42.14 dB</div>
+                                </div>
                             <p>The total processing gain is <strong>45 dB</strong> (factor of ~31,623×). The matched filter exploits the known waveform shape; coherent integration exploits phase consistency across pulses while noise averages out.</p>
                             <h4>📊 Code Tracing Values</h4>
                             <div class="trace-box">
@@ -1008,7 +1028,17 @@ SNR_CI_linear = 10^(SNR_CI_dB/10);
 Pd_approx = 0.5 * erfc( ...
     (gamma_thresh - SNR_CI_linear) / sqrt(2*SNR_CI_linear) );
 Pd_approx = max(0, min(1, Pd_approx));</code></pre>
+
+                            <div class="matlab-figure-wrap">
+                                <img src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNzIwIDI0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBzdHlsZT0iYmFja2dyb3VuZDojZjBmMGYwO2JvcmRlcjoxcHggc29saWQgI2NjYztib3JkZXItcmFkaXVzOjRweDtmb250LWZhbWlseTpBcmlhbCxzYW5zLXNlcmlmOyI+CiAgPHJlY3Qgd2lkdGg9IjcyMCIgaGVpZ2h0PSIyNDAiIGZpbGw9IiNmMGYwZjAiLz4KCiAgPHJlY3QgeD0iNjQiIHk9IjQ4IiB3aWR0aD0iNjM2IiBoZWlnaHQ9IjE0OCIgZmlsbD0id2hpdGUiIHN0cm9rZT0iI2FhYSIgc3Ryb2tlLXdpZHRoPSIwLjgiLz4KICA8Y2xpcFBhdGggaWQ9ImNwMSI+PHJlY3QgeD0iNjQiIHk9IjQ4IiB3aWR0aD0iNjM2IiBoZWlnaHQ9IjE0OCIvPjwvY2xpcFBhdGg+CiAgPGcgY2xpcC1wYXRoPSJ1cmwoI2NwMSkiPjxwb2x5bGluZSBwb2ludHM9IjY0LjAsMTk2LjAgNjYuMSwxOTYuMCA2OC4zLDE5Ni4wIDcwLjQsMTk2LjAgNzIuNSwxOTYuMCA3NC42LDE5Ni4wIDc2LjgsMTk2LjAgNzguOSwxOTYuMCA4MS4wLDE5Ni4wIDgzLjEsMTk2LjAgODUuMywxOTYuMCA4Ny40LDE5Ni4wIDg5LjUsMTk2LjAgOTEuNywxOTYuMCA5My44LDE5Ni4wIDk1LjksMTk2LjAgOTguMCwxOTYuMCAxMDAuMiwxOTYuMCAxMDIuMywxOTYuMCAxMDQuNCwxOTYuMCAxMDYuNSwxOTYuMCAxMDguNywxOTYuMCAxMTAuOCwxOTYuMCAxMTIuOSwxOTYuMCAxMTUuMSwxOTYuMCAxMTcuMiwxOTYuMCAxMTkuMywxOTYuMCAxMjEuNCwxOTYuMCAxMjMuNiwxOTYuMCAxMjUuNywxOTYuMCAxMjcuOCwxOTYuMCAxMjkuOSwxOTYuMCAxMzIuMSwxOTYuMCAxMzQuMiwxOTYuMCAxMzYuMywxOTYuMCAxMzguNCwxOTYuMCAxNDAuNiwxOTYuMCAxNDIuNywxOTYuMCAxNDQuOCwxOTYuMCAxNDcuMCwxOTYuMCAxNDkuMSwxOTYuMCAxNTEuMiwxOTYuMCAxNTMuMywxOTYuMCAxNTUuNSwxOTYuMCAxNTcuNiwxOTYuMCAxNTkuNywxOTYuMCAxNjEuOCwxOTYuMCAxNjQuMCwxOTYuMCAxNjYuMSwxOTYuMCAxNjguMiwxOTYuMCAxNzAuNCwxOTYuMCAxNzIuNSwxOTYuMCAxNzQuNiwxOTYuMCAxNzYuNywxOTYuMCAxNzguOSwxOTYuMCAxODEuMCwxOTYuMCAxODMuMSwxOTYuMCAxODUuMiwxOTYuMCAxODcuNCwxOTYuMCAxODkuNSwxOTYuMCAxOTEuNiwxOTYuMCAxOTMuOCwxOTYuMCAxOTUuOSwxOTYuMCAxOTguMCwxOTYuMCAyMDAuMSwxOTYuMCAyMDIuMywxOTYuMCAyMDQuNCwxOTYuMCAyMDYuNSwxOTYuMCAyMDguNiwxOTYuMCAyMTAuOCwxOTYuMCAyMTIuOSwxOTYuMCAyMTUuMCwxOTYuMCAyMTcuMiwxOTYuMCAyMTkuMywxOTYuMCAyMjEuNCwxOTYuMCAyMjMuNSwxOTYuMCAyMjUuNywxOTUuOSAyMjcuOCwxOTUuOSAyMjkuOSwxOTUuOSAyMzIuMCwxOTUuOCAyMzQuMiwxOTUuOCAyMzYuMywxOTUuNyAyMzguNCwxOTUuNiAyNDAuNSwxOTUuNSAyNDIuNywxOTUuMyAyNDQuOCwxOTUuMSAyNDYuOSwxOTQuOSAyNDkuMSwxOTQuNiAyNTEuMiwxOTQuMiAyNTMuMywxOTMuOCAyNTUuNCwxOTMuMiAyNTcuNiwxOTIuNSAyNTkuNywxOTEuOCAyNjEuOCwxOTAuOCAyNjMuOSwxODkuOCAyNjYuMSwxODguNSAyNjguMiwxODcuMSAyNzAuMywxODUuNCAyNzIuNSwxODMuNiAyNzQuNiwxODEuNSAyNzYuNywxNzkuMiAyNzguOCwxNzYuNiAyODEuMCwxNzMuOCAyODMuMSwxNzAuNyAyODUuMiwxNjcuNCAyODcuMywxNjMuOCAyODkuNSwxNjAuMCAyOTEuNiwxNTYuMCAyOTMuNywxNTEuOCAyOTUuOSwxNDcuNCAyOTguMCwxNDIuOSAzMDAuMSwxMzguMiAzMDIuMiwxMzMuNSAzMDQuNCwxMjguNyAzMDYuNSwxMjMuOSAzMDguNiwxMTkuMSAzMTAuNywxMTQuMyAzMTIuOSwxMDkuNiAzMTUuMCwxMDUuMCAzMTcuMSwxMDAuNiAzMTkuMyw5Ni4zIDMyMS40LDkyLjIgMzIzLjUsODguNCAzMjUuNiw4NC44IDMyNy44LDgxLjQgMzI5LjksNzguMiAzMzIuMCw3NS4zIDMzNC4xLDcyLjcgMzM2LjMsNzAuMyAzMzguNCw2OC4xIDM0MC41LDY2LjIgMzQyLjYsNjQuNSAzNDQuOCw2My4wIDM0Ni45LDYxLjcgMzQ5LjAsNjAuNSAzNTEuMiw1OS42IDM1My4zLDU4LjcgMzU1LjQsNTguMCAzNTcuNSw1Ny41IDM1OS43LDU3LjAgMzYxLjgsNTYuNiAzNjMuOSw1Ni4yIDM2Ni4wLDU2LjAgMzY4LjIsNTUuOCAzNzAuMyw1NS42IDM3Mi40LDU1LjUgMzc0LjYsNTUuNCAzNzYuNyw1NS4zIDM3OC44LDU1LjIgMzgwLjksNTUuMiAzODMuMSw1NS4xIDM4NS4yLDU1LjEgMzg3LjMsNTUuMSAzODkuNCw1NS4xIDM5MS42LDU1LjEgMzkzLjcsNTUuMSAzOTUuOCw1NS4xIDM5OC4wLDU1LjEgNDAwLjEsNTUuMSA0MDIuMiw1NS4xIDQwNC4zLDU1LjAgNDA2LjUsNTUuMCA0MDguNiw1NS4wIDQxMC43LDU1LjAgNDEyLjgsNTUuMCA0MTUuMCw1NS4wIDQxNy4xLDU1LjAgNDE5LjIsNTUuMCA0MjEuNCw1NS4wIDQyMy41LDU1LjAgNDI1LjYsNTUuMCA0MjcuNyw1NS4wIDQyOS45LDU1LjAgNDMyLjAsNTUuMCA0MzQuMSw1NS4wIDQzNi4yLDU1LjAgNDM4LjQsNTUuMCA0NDAuNSw1NS4wIDQ0Mi42LDU1LjAgNDQ0LjcsNTUuMCA0NDYuOSw1NS4wIDQ0OS4wLDU1LjAgNDUxLjEsNTUuMCA0NTMuMyw1NS4wIDQ1NS40LDU1LjAgNDU3LjUsNTUuMCA0NTkuNiw1NS4wIDQ2MS44LDU1LjAgNDYzLjksNTUuMCA0NjYuMCw1NS4wIDQ2OC4xLDU1LjAgNDcwLjMsNTUuMCA0NzIuNCw1NS4wIDQ3NC41LDU1LjAgNDc2LjcsNTUuMCA0NzguOCw1NS4wIDQ4MC45LDU1LjAgNDgzLjAsNTUuMCA0ODUuMiw1NS4wIDQ4Ny4zLDU1LjAgNDg5LjQsNTUuMCA0OTEuNSw1NS4wIDQ5My43LDU1LjAgNDk1LjgsNTUuMCA0OTcuOSw1NS4wIDUwMC4xLDU1LjAgNTAyLjIsNTUuMCA1MDQuMyw1NS4wIDUwNi40LDU1LjAgNTA4LjYsNTUuMCA1MTAuNyw1NS4wIDUxMi44LDU1LjAgNTE0LjksNTUuMCA1MTcuMSw1NS4wIDUxOS4yLDU1LjAgNTIxLjMsNTUuMCA1MjMuNSw1NS4wIDUyNS42LDU1LjAgNTI3LjcsNTUuMCA1MjkuOCw1NS4wIDUzMi4wLDU1LjAgNTM0LjEsNTUuMCA1MzYuMiw1NS4wIDUzOC4zLDU1LjAgNTQwLjUsNTUuMCA1NDIuNiw1NS4wIDU0NC43LDU1LjAgNTQ2LjgsNTUuMCA1NDkuMCw1NS4wIDU1MS4xLDU1LjAgNTUzLjIsNTUuMCA1NTUuNCw1NS4wIDU1Ny41LDU1LjAgNTU5LjYsNTUuMCA1NjEuNyw1NS4wIDU2My45LDU1LjAgNTY2LjAsNTUuMCA1NjguMSw1NS4wIDU3MC4yLDU1LjAgNTcyLjQsNTUuMCA1NzQuNSw1NS4wIDU3Ni42LDU1LjAgNTc4LjgsNTUuMCA1ODAuOSw1NS4wIDU4My4wLDU1LjAgNTg1LjEsNTUuMCA1ODcuMyw1NS4wIDU4OS40LDU1LjAgNTkxLjUsNTUuMCA1OTMuNiw1NS4wIDU5NS44LDU1LjAgNTk3LjksNTUuMCA2MDAuMCw1NS4wIDYwMi4yLDU1LjAgNjA0LjMsNTUuMCA2MDYuNCw1NS4wIDYwOC41LDU1LjAgNjEwLjcsNTUuMCA2MTIuOCw1NS4wIDYxNC45LDU1LjAgNjE3LjAsNTUuMCA2MTkuMiw1NS4wIDYyMS4zLDU1LjAgNjIzLjQsNTUuMCA2MjUuNiw1NS4wIDYyNy43LDU1LjAgNjI5LjgsNTUuMCA2MzEuOSw1NS4wIDYzNC4xLDU1LjAgNjM2LjIsNTUuMCA2MzguMyw1NS4wIDY0MC40LDU1LjAgNjQyLjYsNTUuMCA2NDQuNyw1NS4wIDY0Ni44LDU1LjAgNjQ4LjksNTUuMCA2NTEuMSw1NS4wIDY1My4yLDU1LjAgNjU1LjMsNTUuMCA2NTcuNSw1NS4wIDY1OS42LDU1LjAgNjYxLjcsNTUuMCA2NjMuOCw1NS4wIDY2Ni4wLDU1LjAgNjY4LjEsNTUuMCA2NzAuMiw1NS4wIDY3Mi4zLDU1LjAgNjc0LjUsNTUuMCA2NzYuNiw1NS4wIDY3OC43LDU1LjAgNjgwLjksNTUuMCA2ODMuMCw1NS4wIDY4NS4xLDU1LjAgNjg3LjIsNTUuMCA2ODkuNCw1NS4wIDY5MS41LDU1LjAgNjkzLjYsNTUuMCA2OTUuNyw1NS4wIDY5Ny45LDU1LjAgNzAwLjAsNTUuMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjRDk1MzE5IiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48bGluZSB4MT0iNjk4IiB5MT0iNTIiIHgyPSI2OTgiIHkyPSIxOTYiIHN0cm9rZT0iI2ZmMDAwMCIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1kYXNoYXJyYXk9IjQsMyIvPjx0ZXh0IHg9IjY5NiIgeT0iNjYiIHRleHQtYW5jaG9yPSJlbmQiIGZvbnQtc2l6ZT0iOSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmaWxsPSIjY2MwMDAwIj5TTlI9NjIgZELihpJQZOKJiDEuMDwvdGV4dD48dGV4dCB4PSI3MiIgeT0iNjIiIGZvbnQtc2l6ZT0iOSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmaWxsPSIjMDA3MkJEIj5QZmEgPSAxMOKBu+KBtjwvdGV4dD48bGluZSB4MT0iNjQiIHkxPSIxMjUuNSIgeDI9IjcwMCIgeTI9IjEyNS41IiBzdHJva2U9IiNhYWEiIHN0cm9rZS13aWR0aD0iMC41IiBzdHJva2UtZGFzaGFycmF5PSIzLDIiLz48bGluZSB4MT0iNjQiIHkxPSIxOTYuMCIgeDI9IjYwIiB5Mj0iMTk2LjAiIHN0cm9rZT0iIzg4OCIgc3Ryb2tlLXdpZHRoPSIwLjgiLz48dGV4dCB4PSI1OCIgeT0iMjAwLjAiIHRleHQtYW5jaG9yPSJlbmQiIGZvbnQtc2l6ZT0iOSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmaWxsPSIjNTU1Ij4wLjA8L3RleHQ+PGxpbmUgeDE9IjY0IiB5MT0iMTYwLjgiIHgyPSI2MCIgeTI9IjE2MC44IiBzdHJva2U9IiM4ODgiIHN0cm9rZS13aWR0aD0iMC44Ii8+PHRleHQgeD0iNTgiIHk9IjE2NC44IiB0ZXh0LWFuY2hvcj0iZW5kIiBmb250LXNpemU9IjkiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZmlsbD0iIzU1NSI+MC4yPC90ZXh0PjxsaW5lIHgxPSI2NCIgeTE9IjEyNS41IiB4Mj0iNjAiIHkyPSIxMjUuNSIgc3Ryb2tlPSIjODg4IiBzdHJva2Utd2lkdGg9IjAuOCIvPjx0ZXh0IHg9IjU4IiB5PSIxMjkuNSIgdGV4dC1hbmNob3I9ImVuZCIgZm9udC1zaXplPSI5IiBmb250LWZhbWlseT0iQXJpYWwiIGZpbGw9IiM1NTUiPjAuNTwvdGV4dD48bGluZSB4MT0iNjQiIHkxPSI5MC4zIiB4Mj0iNjAiIHkyPSI5MC4zIiBzdHJva2U9IiM4ODgiIHN0cm9rZS13aWR0aD0iMC44Ii8+PHRleHQgeD0iNTgiIHk9Ijk0LjMiIHRleHQtYW5jaG9yPSJlbmQiIGZvbnQtc2l6ZT0iOSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmaWxsPSIjNTU1Ij4wLjg8L3RleHQ+PGxpbmUgeDE9IjY0IiB5MT0iNTUuMCIgeDI9IjYwIiB5Mj0iNTUuMCIgc3Ryb2tlPSIjODg4IiBzdHJva2Utd2lkdGg9IjAuOCIvPjx0ZXh0IHg9IjU4IiB5PSI1OS4wIiB0ZXh0LWFuY2hvcj0iZW5kIiBmb250LXNpemU9IjkiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZmlsbD0iIzU1NSI+MS4wPC90ZXh0PjxsaW5lIHgxPSI2NC4wIiB5MT0iMTk2IiB4Mj0iNjQuMCIgeTI9IjIwMCIgc3Ryb2tlPSIjODg4IiBzdHJva2Utd2lkdGg9IjAuOCIvPjx0ZXh0IHg9IjY0LjAiIHk9IjIxMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSI5IiBmb250LWZhbWlseT0iQXJpYWwiIGZpbGw9IiM1NTUiPjA8L3RleHQ+PGxpbmUgeDE9IjE3MC4wIiB5MT0iMTk2IiB4Mj0iMTcwLjAiIHkyPSIyMDAiIHN0cm9rZT0iIzg4OCIgc3Ryb2tlLXdpZHRoPSIwLjgiLz48dGV4dCB4PSIxNzAuMCIgeT0iMjEwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjkiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZmlsbD0iIzU1NSI+NTwvdGV4dD48bGluZSB4MT0iMjc2LjAiIHkxPSIxOTYiIHgyPSIyNzYuMCIgeTI9IjIwMCIgc3Ryb2tlPSIjODg4IiBzdHJva2Utd2lkdGg9IjAuOCIvPjx0ZXh0IHg9IjI3Ni4wIiB5PSIyMTAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iOSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmaWxsPSIjNTU1Ij4xMDwvdGV4dD48bGluZSB4MT0iMzgyLjAiIHkxPSIxOTYiIHgyPSIzODIuMCIgeTI9IjIwMCIgc3Ryb2tlPSIjODg4IiBzdHJva2Utd2lkdGg9IjAuOCIvPjx0ZXh0IHg9IjM4Mi4wIiB5PSIyMTAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iOSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmaWxsPSIjNTU1Ij4xNTwvdGV4dD48bGluZSB4MT0iNDg4LjAiIHkxPSIxOTYiIHgyPSI0ODguMCIgeTI9IjIwMCIgc3Ryb2tlPSIjODg4IiBzdHJva2Utd2lkdGg9IjAuOCIvPjx0ZXh0IHg9IjQ4OC4wIiB5PSIyMTAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iOSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmaWxsPSIjNTU1Ij4yMDwvdGV4dD48bGluZSB4MT0iNTk0LjAiIHkxPSIxOTYiIHgyPSI1OTQuMCIgeTI9IjIwMCIgc3Ryb2tlPSIjODg4IiBzdHJva2Utd2lkdGg9IjAuOCIvPjx0ZXh0IHg9IjU5NC4wIiB5PSIyMTAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iOSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmaWxsPSIjNTU1Ij4yNTwvdGV4dD48bGluZSB4MT0iNzAwLjAiIHkxPSIxOTYiIHgyPSI3MDAuMCIgeTI9IjIwMCIgc3Ryb2tlPSIjODg4IiBzdHJva2Utd2lkdGg9IjAuOCIvPjx0ZXh0IHg9IjcwMC4wIiB5PSIyMTAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iOSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmaWxsPSIjNTU1Ij4zMDwvdGV4dD48L2c+CiAgPGxpbmUgeDE9IjY0IiB5MT0iODUiIHgyPSI3MDAiIHkyPSI4NSIgc3Ryb2tlPSIjZTBlMGUwIiBzdHJva2Utd2lkdGg9IjAuNSIvPjxsaW5lIHgxPSI2NCIgeTE9IjEyMiIgeDI9IjcwMCIgeTI9IjEyMiIgc3Ryb2tlPSIjZTBlMGUwIiBzdHJva2Utd2lkdGg9IjAuNSIvPjxsaW5lIHgxPSI2NCIgeTE9IjE1OSIgeDI9IjcwMCIgeTI9IjE1OSIgc3Ryb2tlPSIjZTBlMGUwIiBzdHJva2Utd2lkdGg9IjAuNSIvPgogIDxsaW5lIHgxPSIyMjMiIHkxPSI0OCIgeDI9IjIyMyIgeTI9IjE5NiIgc3Ryb2tlPSIjZTBlMGUwIiBzdHJva2Utd2lkdGg9IjAuNSIvPjxsaW5lIHgxPSIzODIiIHkxPSI0OCIgeDI9IjM4MiIgeTI9IjE5NiIgc3Ryb2tlPSIjZTBlMGUwIiBzdHJva2Utd2lkdGg9IjAuNSIvPjxsaW5lIHgxPSI1NDEiIHkxPSI0OCIgeDI9IjU0MSIgeTI9IjE5NiIgc3Ryb2tlPSIjZTBlMGUwIiBzdHJva2Utd2lkdGg9IjAuNSIvPgogIDxyZWN0IHg9IjY0IiB5PSI0OCIgd2lkdGg9IjYzNiIgaGVpZ2h0PSIxNDgiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzg4OCIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgPHRleHQgeD0iMzgyIiB5PSIzOCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxMSIgZm9udC13ZWlnaHQ9ImJvbGQiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZmlsbD0iIzMzMyI+UHJvYmFiaWxpdHkgb2YgRGV0ZWN0aW9uIHZzIFNOUiAgKFBmYSA9IDEw4oG74oG2KTwvdGV4dD4KICA8dGV4dCB4PSIzODIiIHk9IjIzMiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxMCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmaWxsPSIjNTU1Ij5TTlIgKGRCKTwvdGV4dD4KICA8dGV4dCB4PSIyMiIgeT0iMTIyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjEwIiBmb250LWZhbWlseT0iQXJpYWwiIGZpbGw9IiM1NTUiIHRyYW5zZm9ybT0icm90YXRlKC05MCwyMiwxMjIpIj5QZDwvdGV4dD4KICAKCjwvc3ZnPg==" alt="Pd vs SNR curve (Pfa = 10⁻⁶) — our operating point at 62 dB gives Pd ≈ 1.0" class="matlab-figure-img" />
+                                <div class="matlab-figure-caption">Pd vs SNR curve (Pfa = 10⁻⁶) — our operating point at 62 dB gives Pd ≈ 1.0</div>
+                            </div>
                             <h4>💡 Why It Matters</h4>
+                            <p>
+                                <div class="matlab-figure-wrap">
+                                    <img src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNzIwIDI0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBzdHlsZT0iYmFja2dyb3VuZDojZjBmMGYwO2JvcmRlcjoxcHggc29saWQgI2NjYztib3JkZXItcmFkaXVzOjRweDtmb250LWZhbWlseTpBcmlhbCxzYW5zLXNlcmlmOyI+CiAgPHJlY3Qgd2lkdGg9IjcyMCIgaGVpZ2h0PSIyNDAiIGZpbGw9IiNmMGYwZjAiLz4KCiAgPHJlY3QgeD0iNjQiIHk9IjQ4IiB3aWR0aD0iNjM2IiBoZWlnaHQ9IjE0OCIgZmlsbD0id2hpdGUiIHN0cm9rZT0iI2FhYSIgc3Ryb2tlLXdpZHRoPSIwLjgiLz4KICA8Y2xpcFBhdGggaWQ9ImNwMSI+PHJlY3QgeD0iNjQiIHk9IjQ4IiB3aWR0aD0iNjM2IiBoZWlnaHQ9IjE0OCIvPjwvY2xpcFBhdGg+CiAgPGcgY2xpcC1wYXRoPSJ1cmwoI2NwMSkiPjxwb2x5bGluZSBwb2ludHM9IjY0LjAsMTk2LjAgNjYuMSwxOTYuMCA2OC4zLDE5Ni4wIDcwLjQsMTk2LjAgNzIuNSwxOTYuMCA3NC42LDE5Ni4wIDc2LjgsMTk2LjAgNzguOSwxOTYuMCA4MS4wLDE5Ni4wIDgzLjEsMTk2LjAgODUuMywxOTYuMCA4Ny40LDE5Ni4wIDg5LjUsMTk2LjAgOTEuNywxOTYuMCA5My44LDE5Ni4wIDk1LjksMTk2LjAgOTguMCwxOTYuMCAxMDAuMiwxOTYuMCAxMDIuMywxOTYuMCAxMDQuNCwxOTYuMCAxMDYuNSwxOTYuMCAxMDguNywxOTYuMCAxMTAuOCwxOTYuMCAxMTIuOSwxOTYuMCAxMTUuMSwxOTYuMCAxMTcuMiwxOTYuMCAxMTkuMywxOTYuMCAxMjEuNCwxOTYuMCAxMjMuNiwxOTYuMCAxMjUuNywxOTYuMCAxMjcuOCwxOTYuMCAxMjkuOSwxOTYuMCAxMzIuMSwxOTYuMCAxMzQuMiwxOTYuMCAxMzYuMywxOTYuMCAxMzguNCwxOTYuMCAxNDAuNiwxOTYuMCAxNDIuNywxOTYuMCAxNDQuOCwxOTYuMCAxNDcuMCwxOTYuMCAxNDkuMSwxOTYuMCAxNTEuMiwxOTYuMCAxNTMuMywxOTYuMCAxNTUuNSwxOTYuMCAxNTcuNiwxOTYuMCAxNTkuNywxOTYuMCAxNjEuOCwxOTYuMCAxNjQuMCwxOTYuMCAxNjYuMSwxOTYuMCAxNjguMiwxOTYuMCAxNzAuNCwxOTYuMCAxNzIuNSwxOTYuMCAxNzQuNiwxOTYuMCAxNzYuNywxOTYuMCAxNzguOSwxOTYuMCAxODEuMCwxOTYuMCAxODMuMSwxOTYuMCAxODUuMiwxOTYuMCAxODcuNCwxOTYuMCAxODkuNSwxOTYuMCAxOTEuNiwxOTYuMCAxOTMuOCwxOTYuMCAxOTUuOSwxOTYuMCAxOTguMCwxOTYuMCAyMDAuMSwxOTYuMCAyMDIuMywxOTYuMCAyMDQuNCwxOTYuMCAyMDYuNSwxOTYuMCAyMDguNiwxOTYuMCAyMTAuOCwxOTYuMCAyMTIuOSwxOTYuMCAyMTUuMCwxOTYuMCAyMTcuMiwxOTYuMCAyMTkuMywxOTYuMCAyMjEuNCwxOTYuMCAyMjMuNSwxOTYuMCAyMjUuNywxOTUuOSAyMjcuOCwxOTUuOSAyMjkuOSwxOTUuOSAyMzIuMCwxOTUuOCAyMzQuMiwxOTUuOCAyMzYuMywxOTUuNyAyMzguNCwxOTUuNiAyNDAuNSwxOTUuNSAyNDIuNywxOTUuMyAyNDQuOCwxOTUuMSAyNDYuOSwxOTQuOSAyNDkuMSwxOTQuNiAyNTEuMiwxOTQuMiAyNTMuMywxOTMuOCAyNTUuNCwxOTMuMiAyNTcuNiwxOTIuNSAyNTkuNywxOTEuOCAyNjEuOCwxOTAuOCAyNjMuOSwxODkuOCAyNjYuMSwxODguNSAyNjguMiwxODcuMSAyNzAuMywxODUuNCAyNzIuNSwxODMuNiAyNzQuNiwxODEuNSAyNzYuNywxNzkuMiAyNzguOCwxNzYuNiAyODEuMCwxNzMuOCAyODMuMSwxNzAuNyAyODUuMiwxNjcuNCAyODcuMywxNjMuOCAyODkuNSwxNjAuMCAyOTEuNiwxNTYuMCAyOTMuNywxNTEuOCAyOTUuOSwxNDcuNCAyOTguMCwxNDIuOSAzMDAuMSwxMzguMiAzMDIuMiwxMzMuNSAzMDQuNCwxMjguNyAzMDYuNSwxMjMuOSAzMDguNiwxMTkuMSAzMTAuNywxMTQuMyAzMTIuOSwxMDkuNiAzMTUuMCwxMDUuMCAzMTcuMSwxMDAuNiAzMTkuMyw5Ni4zIDMyMS40LDkyLjIgMzIzLjUsODguNCAzMjUuNiw4NC44IDMyNy44LDgxLjQgMzI5LjksNzguMiAzMzIuMCw3NS4zIDMzNC4xLDcyLjcgMzM2LjMsNzAuMyAzMzguNCw2OC4xIDM0MC41LDY2LjIgMzQyLjYsNjQuNSAzNDQuOCw2My4wIDM0Ni45LDYxLjcgMzQ5LjAsNjAuNSAzNTEuMiw1OS42IDM1My4zLDU4LjcgMzU1LjQsNTguMCAzNTcuNSw1Ny41IDM1OS43LDU3LjAgMzYxLjgsNTYuNiAzNjMuOSw1Ni4yIDM2Ni4wLDU2LjAgMzY4LjIsNTUuOCAzNzAuMyw1NS42IDM3Mi40LDU1LjUgMzc0LjYsNTUuNCAzNzYuNyw1NS4zIDM3OC44LDU1LjIgMzgwLjksNTUuMiAzODMuMSw1NS4xIDM4NS4yLDU1LjEgMzg3LjMsNTUuMSAzODkuNCw1NS4xIDM5MS42LDU1LjEgMzkzLjcsNTUuMSAzOTUuOCw1NS4xIDM5OC4wLDU1LjEgNDAwLjEsNTUuMSA0MDIuMiw1NS4xIDQwNC4zLDU1LjAgNDA2LjUsNTUuMCA0MDguNiw1NS4wIDQxMC43LDU1LjAgNDEyLjgsNTUuMCA0MTUuMCw1NS4wIDQxNy4xLDU1LjAgNDE5LjIsNTUuMCA0MjEuNCw1NS4wIDQyMy41LDU1LjAgNDI1LjYsNTUuMCA0MjcuNyw1NS4wIDQyOS45LDU1LjAgNDMyLjAsNTUuMCA0MzQuMSw1NS4wIDQzNi4yLDU1LjAgNDM4LjQsNTUuMCA0NDAuNSw1NS4wIDQ0Mi42LDU1LjAgNDQ0LjcsNTUuMCA0NDYuOSw1NS4wIDQ0OS4wLDU1LjAgNDUxLjEsNTUuMCA0NTMuMyw1NS4wIDQ1NS40LDU1LjAgNDU3LjUsNTUuMCA0NTkuNiw1NS4wIDQ2MS44LDU1LjAgNDYzLjksNTUuMCA0NjYuMCw1NS4wIDQ2OC4xLDU1LjAgNDcwLjMsNTUuMCA0NzIuNCw1NS4wIDQ3NC41LDU1LjAgNDc2LjcsNTUuMCA0NzguOCw1NS4wIDQ4MC45LDU1LjAgNDgzLjAsNTUuMCA0ODUuMiw1NS4wIDQ4Ny4zLDU1LjAgNDg5LjQsNTUuMCA0OTEuNSw1NS4wIDQ5My43LDU1LjAgNDk1LjgsNTUuMCA0OTcuOSw1NS4wIDUwMC4xLDU1LjAgNTAyLjIsNTUuMCA1MDQuMyw1NS4wIDUwNi40LDU1LjAgNTA4LjYsNTUuMCA1MTAuNyw1NS4wIDUxMi44LDU1LjAgNTE0LjksNTUuMCA1MTcuMSw1NS4wIDUxOS4yLDU1LjAgNTIxLjMsNTUuMCA1MjMuNSw1NS4wIDUyNS42LDU1LjAgNTI3LjcsNTUuMCA1MjkuOCw1NS4wIDUzMi4wLDU1LjAgNTM0LjEsNTUuMCA1MzYuMiw1NS4wIDUzOC4zLDU1LjAgNTQwLjUsNTUuMCA1NDIuNiw1NS4wIDU0NC43LDU1LjAgNTQ2LjgsNTUuMCA1NDkuMCw1NS4wIDU1MS4xLDU1LjAgNTUzLjIsNTUuMCA1NTUuNCw1NS4wIDU1Ny41LDU1LjAgNTU5LjYsNTUuMCA1NjEuNyw1NS4wIDU2My45LDU1LjAgNTY2LjAsNTUuMCA1NjguMSw1NS4wIDU3MC4yLDU1LjAgNTcyLjQsNTUuMCA1NzQuNSw1NS4wIDU3Ni42LDU1LjAgNTc4LjgsNTUuMCA1ODAuOSw1NS4wIDU4My4wLDU1LjAgNTg1LjEsNTUuMCA1ODcuMyw1NS4wIDU4OS40LDU1LjAgNTkxLjUsNTUuMCA1OTMuNiw1NS4wIDU5NS44LDU1LjAgNTk3LjksNTUuMCA2MDAuMCw1NS4wIDYwMi4yLDU1LjAgNjA0LjMsNTUuMCA2MDYuNCw1NS4wIDYwOC41LDU1LjAgNjEwLjcsNTUuMCA2MTIuOCw1NS4wIDYxNC45LDU1LjAgNjE3LjAsNTUuMCA2MTkuMiw1NS4wIDYyMS4zLDU1LjAgNjIzLjQsNTUuMCA2MjUuNiw1NS4wIDYyNy43LDU1LjAgNjI5LjgsNTUuMCA2MzEuOSw1NS4wIDYzNC4xLDU1LjAgNjM2LjIsNTUuMCA2MzguMyw1NS4wIDY0MC40LDU1LjAgNjQyLjYsNTUuMCA2NDQuNyw1NS4wIDY0Ni44LDU1LjAgNjQ4LjksNTUuMCA2NTEuMSw1NS4wIDY1My4yLDU1LjAgNjU1LjMsNTUuMCA2NTcuNSw1NS4wIDY1OS42LDU1LjAgNjYxLjcsNTUuMCA2NjMuOCw1NS4wIDY2Ni4wLDU1LjAgNjY4LjEsNTUuMCA2NzAuMiw1NS4wIDY3Mi4zLDU1LjAgNjc0LjUsNTUuMCA2NzYuNiw1NS4wIDY3OC43LDU1LjAgNjgwLjksNTUuMCA2ODMuMCw1NS4wIDY4NS4xLDU1LjAgNjg3LjIsNTUuMCA2ODkuNCw1NS4wIDY5MS41LDU1LjAgNjkzLjYsNTUuMCA2OTUuNyw1NS4wIDY5Ny45LDU1LjAgNzAwLjAsNTUuMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjRDk1MzE5IiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48bGluZSB4MT0iNjk4IiB5MT0iNTIiIHgyPSI2OTgiIHkyPSIxOTYiIHN0cm9rZT0iI2ZmMDAwMCIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1kYXNoYXJyYXk9IjQsMyIvPjx0ZXh0IHg9IjY5NiIgeT0iNjYiIHRleHQtYW5jaG9yPSJlbmQiIGZvbnQtc2l6ZT0iOSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmaWxsPSIjY2MwMDAwIj5TTlI9NjIgZELihpJQZOKJiDEuMDwvdGV4dD48dGV4dCB4PSI3MiIgeT0iNjIiIGZvbnQtc2l6ZT0iOSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmaWxsPSIjMDA3MkJEIj5QZmEgPSAxMOKBu+KBtjwvdGV4dD48bGluZSB4MT0iNjQiIHkxPSIxMjUuNSIgeDI9IjcwMCIgeTI9IjEyNS41IiBzdHJva2U9IiNhYWEiIHN0cm9rZS13aWR0aD0iMC41IiBzdHJva2UtZGFzaGFycmF5PSIzLDIiLz48bGluZSB4MT0iNjQiIHkxPSIxOTYuMCIgeDI9IjYwIiB5Mj0iMTk2LjAiIHN0cm9rZT0iIzg4OCIgc3Ryb2tlLXdpZHRoPSIwLjgiLz48dGV4dCB4PSI1OCIgeT0iMjAwLjAiIHRleHQtYW5jaG9yPSJlbmQiIGZvbnQtc2l6ZT0iOSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmaWxsPSIjNTU1Ij4wLjA8L3RleHQ+PGxpbmUgeDE9IjY0IiB5MT0iMTYwLjgiIHgyPSI2MCIgeTI9IjE2MC44IiBzdHJva2U9IiM4ODgiIHN0cm9rZS13aWR0aD0iMC44Ii8+PHRleHQgeD0iNTgiIHk9IjE2NC44IiB0ZXh0LWFuY2hvcj0iZW5kIiBmb250LXNpemU9IjkiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZmlsbD0iIzU1NSI+MC4yPC90ZXh0PjxsaW5lIHgxPSI2NCIgeTE9IjEyNS41IiB4Mj0iNjAiIHkyPSIxMjUuNSIgc3Ryb2tlPSIjODg4IiBzdHJva2Utd2lkdGg9IjAuOCIvPjx0ZXh0IHg9IjU4IiB5PSIxMjkuNSIgdGV4dC1hbmNob3I9ImVuZCIgZm9udC1zaXplPSI5IiBmb250LWZhbWlseT0iQXJpYWwiIGZpbGw9IiM1NTUiPjAuNTwvdGV4dD48bGluZSB4MT0iNjQiIHkxPSI5MC4zIiB4Mj0iNjAiIHkyPSI5MC4zIiBzdHJva2U9IiM4ODgiIHN0cm9rZS13aWR0aD0iMC44Ii8+PHRleHQgeD0iNTgiIHk9Ijk0LjMiIHRleHQtYW5jaG9yPSJlbmQiIGZvbnQtc2l6ZT0iOSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmaWxsPSIjNTU1Ij4wLjg8L3RleHQ+PGxpbmUgeDE9IjY0IiB5MT0iNTUuMCIgeDI9IjYwIiB5Mj0iNTUuMCIgc3Ryb2tlPSIjODg4IiBzdHJva2Utd2lkdGg9IjAuOCIvPjx0ZXh0IHg9IjU4IiB5PSI1OS4wIiB0ZXh0LWFuY2hvcj0iZW5kIiBmb250LXNpemU9IjkiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZmlsbD0iIzU1NSI+MS4wPC90ZXh0PjxsaW5lIHgxPSI2NC4wIiB5MT0iMTk2IiB4Mj0iNjQuMCIgeTI9IjIwMCIgc3Ryb2tlPSIjODg4IiBzdHJva2Utd2lkdGg9IjAuOCIvPjx0ZXh0IHg9IjY0LjAiIHk9IjIxMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSI5IiBmb250LWZhbWlseT0iQXJpYWwiIGZpbGw9IiM1NTUiPjA8L3RleHQ+PGxpbmUgeDE9IjE3MC4wIiB5MT0iMTk2IiB4Mj0iMTcwLjAiIHkyPSIyMDAiIHN0cm9rZT0iIzg4OCIgc3Ryb2tlLXdpZHRoPSIwLjgiLz48dGV4dCB4PSIxNzAuMCIgeT0iMjEwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjkiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZmlsbD0iIzU1NSI+NTwvdGV4dD48bGluZSB4MT0iMjc2LjAiIHkxPSIxOTYiIHgyPSIyNzYuMCIgeTI9IjIwMCIgc3Ryb2tlPSIjODg4IiBzdHJva2Utd2lkdGg9IjAuOCIvPjx0ZXh0IHg9IjI3Ni4wIiB5PSIyMTAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iOSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmaWxsPSIjNTU1Ij4xMDwvdGV4dD48bGluZSB4MT0iMzgyLjAiIHkxPSIxOTYiIHgyPSIzODIuMCIgeTI9IjIwMCIgc3Ryb2tlPSIjODg4IiBzdHJva2Utd2lkdGg9IjAuOCIvPjx0ZXh0IHg9IjM4Mi4wIiB5PSIyMTAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iOSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmaWxsPSIjNTU1Ij4xNTwvdGV4dD48bGluZSB4MT0iNDg4LjAiIHkxPSIxOTYiIHgyPSI0ODguMCIgeTI9IjIwMCIgc3Ryb2tlPSIjODg4IiBzdHJva2Utd2lkdGg9IjAuOCIvPjx0ZXh0IHg9IjQ4OC4wIiB5PSIyMTAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iOSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmaWxsPSIjNTU1Ij4yMDwvdGV4dD48bGluZSB4MT0iNTk0LjAiIHkxPSIxOTYiIHgyPSI1OTQuMCIgeTI9IjIwMCIgc3Ryb2tlPSIjODg4IiBzdHJva2Utd2lkdGg9IjAuOCIvPjx0ZXh0IHg9IjU5NC4wIiB5PSIyMTAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iOSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmaWxsPSIjNTU1Ij4yNTwvdGV4dD48bGluZSB4MT0iNzAwLjAiIHkxPSIxOTYiIHgyPSI3MDAuMCIgeTI9IjIwMCIgc3Ryb2tlPSIjODg4IiBzdHJva2Utd2lkdGg9IjAuOCIvPjx0ZXh0IHg9IjcwMC4wIiB5PSIyMTAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iOSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmaWxsPSIjNTU1Ij4zMDwvdGV4dD48L2c+CiAgPGxpbmUgeDE9IjY0IiB5MT0iODUiIHgyPSI3MDAiIHkyPSI4NSIgc3Ryb2tlPSIjZTBlMGUwIiBzdHJva2Utd2lkdGg9IjAuNSIvPjxsaW5lIHgxPSI2NCIgeTE9IjEyMiIgeDI9IjcwMCIgeTI9IjEyMiIgc3Ryb2tlPSIjZTBlMGUwIiBzdHJva2Utd2lkdGg9IjAuNSIvPjxsaW5lIHgxPSI2NCIgeTE9IjE1OSIgeDI9IjcwMCIgeTI9IjE1OSIgc3Ryb2tlPSIjZTBlMGUwIiBzdHJva2Utd2lkdGg9IjAuNSIvPgogIDxsaW5lIHgxPSIyMjMiIHkxPSI0OCIgeDI9IjIyMyIgeTI9IjE5NiIgc3Ryb2tlPSIjZTBlMGUwIiBzdHJva2Utd2lkdGg9IjAuNSIvPjxsaW5lIHgxPSIzODIiIHkxPSI0OCIgeDI9IjM4MiIgeTI9IjE5NiIgc3Ryb2tlPSIjZTBlMGUwIiBzdHJva2Utd2lkdGg9IjAuNSIvPjxsaW5lIHgxPSI1NDEiIHkxPSI0OCIgeDI9IjU0MSIgeTI9IjE5NiIgc3Ryb2tlPSIjZTBlMGUwIiBzdHJva2Utd2lkdGg9IjAuNSIvPgogIDxyZWN0IHg9IjY0IiB5PSI0OCIgd2lkdGg9IjYzNiIgaGVpZ2h0PSIxNDgiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzg4OCIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgPHRleHQgeD0iMzgyIiB5PSIzOCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxMSIgZm9udC13ZWlnaHQ9ImJvbGQiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZmlsbD0iIzMzMyI+UHJvYmFiaWxpdHkgb2YgRGV0ZWN0aW9uIHZzIFNOUiAgKFBmYSA9IDEw4oG74oG2KTwvdGV4dD4KICA8dGV4dCB4PSIzODIiIHk9IjIzMiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxMCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmaWxsPSIjNTU1Ij5TTlIgKGRCKTwvdGV4dD4KICA8dGV4dCB4PSIyMiIgeT0iMTIyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjEwIiBmb250LWZhbWlseT0iQXJpYWwiIGZpbGw9IiM1NTUiIHRyYW5zZm9ybT0icm90YXRlKC05MCwyMiwxMjIpIj5QZDwvdGV4dD4KICAKCjwvc3ZnPg==" alt="Pd vs SNR curve (Pfa = 10⁻⁶) — our operating point at 62 dB gives Pd ≈ 1.0" class="matlab-figure-img" />
+                                    <div class="matlab-figure-caption">Pd vs SNR curve (Pfa = 10⁻⁶) — our operating point at 62 dB gives Pd ≈ 1.0</div>
+                                </div>
                             <p>With SNR ~65 dB after integration the threshold of 13.82 is vastly exceeded, giving $P_d \approx 1.0$. In real systems with path loss and RCS fluctuation, this analysis identifies the <strong>minimum detectable SNR</strong> for a given Pd/Pfa requirement.</p>
                             <h4>📊 Code Tracing Values</h4>
                             <div class="trace-box">
@@ -1048,19 +1078,24 @@ fprintf('%-22s  %10s\n', 'Block', 'Time (ms)');
 for i = 1:length(lat_blocks)
     fprintf('%-22s  %10.3f\n', block_names{i}, lat_blocks(i)*1e3);
 end</code></pre>
+
                             <h4>💡 Why It Matters</h4>
-                            <p>The <strong>Matched Filter (Block 6)</strong> is the heaviest block due to convolution over 128 pulses. In MATLAB simulation the total is ~5–20 ms on a modern CPU. Real-time hardware (FPGA/DSP) must meet the 35.6 μs PRI constraint — this analysis guides hardware acceleration decisions.</p>
-                            <h4>📊 Code Tracing Values</h4>
-                            <div class="trace-box">
-                                <p><strong>Heaviest Block:</strong> Matched Filter (Block 6) — ~60–70% of total</p>
-                                <p><strong>Lightest Block:</strong> Matrix Reshape (Block 5) — &lt;1%</p>
-                                <p><strong>Typical Total (MATLAB):</strong> ~5–20 ms on modern CPU</p>
-                                <p><strong>Real-Time PRI Constraint:</strong> 35.6 μs → FPGA/GPU required</p>
-                            </div>
+                            <p>
+                                <div class="matlab-figure-wrap">
+                                    <img src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNzIwIDI1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBzdHlsZT0iYmFja2dyb3VuZDojZjBmMGYwO2JvcmRlcjoxcHggc29saWQgI2NjYztib3JkZXItcmFkaXVzOjRweDtmb250LWZhbWlseTpBcmlhbCxzYW5zLXNlcmlmOyI+CiAgPHJlY3Qgd2lkdGg9IjcyMCIgaGVpZ2h0PSIyNTAiIGZpbGw9IiNmMGYwZjAiLz4KCiAgPHJlY3QgeD0iNjQiIHk9IjQ4IiB3aWR0aD0iNjM2IiBoZWlnaHQ9IjE1OCIgZmlsbD0id2hpdGUiIHN0cm9rZT0iI2FhYSIgc3Ryb2tlLXdpZHRoPSIwLjgiLz4KICA8Y2xpcFBhdGggaWQ9ImNwMSI+PHJlY3QgeD0iNjQiIHk9IjQ4IiB3aWR0aD0iNjM2IiBoZWlnaHQ9IjE1OCIvPjwvY2xpcFBhdGg+CiAgPGcgY2xpcC1wYXRoPSJ1cmwoI2NwMSkiPjxyZWN0IHg9IjY5IiB5PSIyMDEuNCIgd2lkdGg9IjYwIiBoZWlnaHQ9IjQuNiIgZmlsbD0iIzREQkVFRSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIwLjUiIHJ4PSIyIi8+PHRleHQgeD0iOTkiIHk9IjE5OC40IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjgiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZmlsbD0iIzMzMyI+MS42PC90ZXh0Pjx0ZXh0IHg9Ijk5IiB5PSIyMTkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iOCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmaWxsPSIjNTU1IiB0cmFuc2Zvcm09InJvdGF0ZSgtMzAsOTksMjE5KSI+TEZNIEdlbjwvdGV4dD48cmVjdCB4PSIxMzEiIHk9IjEyNS42IiB3aWR0aD0iNjAiIGhlaWdodD0iODAuNCIgZmlsbD0iIzAwNzJCRCIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIwLjUiIHJ4PSIyIi8+PHRleHQgeD0iMTYxIiB5PSIxMjIuNiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSI4IiBmb250LWZhbWlseT0iQXJpYWwiIGZpbGw9IiMzMzMiPjI4LjA8L3RleHQ+PHRleHQgeD0iMTYxIiB5PSIyMTkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iOCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmaWxsPSIjNTU1IiB0cmFuc2Zvcm09InJvdGF0ZSgtMzAsMTYxLDIxOSkiPlB1bHNlIFRyYWluPC90ZXh0PjxyZWN0IHg9IjE5MyIgeT0iMTgyLjUiIHdpZHRoPSI2MCIgaGVpZ2h0PSIyMy41IiBmaWxsPSIjNERCRUVFIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjAuNSIgcng9IjIiLz48dGV4dCB4PSIyMjMiIHk9IjE3OS41IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjgiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZmlsbD0iIzMzMyI+OC4yPC90ZXh0Pjx0ZXh0IHg9IjIyMyIgeT0iMjE5IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjgiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZmlsbD0iIzU1NSIgdHJhbnNmb3JtPSJyb3RhdGUoLTMwLDIyMywyMTkpIj5DaGFubmVsPC90ZXh0PjxyZWN0IHg9IjI1NSIgeT0iMTcwLjYiIHdpZHRoPSI2MCIgaGVpZ2h0PSIzNS40IiBmaWxsPSIjNERCRUVFIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjAuNSIgcng9IjIiLz48dGV4dCB4PSIyODUiIHk9IjE2Ny42IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjgiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZmlsbD0iIzMzMyI+MTIuMzwvdGV4dD48dGV4dCB4PSIyODUiIHk9IjIxOSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSI4IiBmb250LWZhbWlseT0iQXJpYWwiIGZpbGw9IiM1NTUiIHRyYW5zZm9ybT0icm90YXRlKC0zMCwyODUsMjE5KSI+Tm9pc2U8L3RleHQ+PHJlY3QgeD0iMzE3IiB5PSIyMDIuOCIgd2lkdGg9IjYwIiBoZWlnaHQ9IjMuMiIgZmlsbD0iIzREQkVFRSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIwLjUiIHJ4PSIyIi8+PHRleHQgeD0iMzQ3IiB5PSIxOTkuOCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSI4IiBmb250LWZhbWlseT0iQXJpYWwiIGZpbGw9IiMzMzMiPjEuMTwvdGV4dD48dGV4dCB4PSIzNDciIHk9IjIxOSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSI4IiBmb250LWZhbWlseT0iQXJpYWwiIGZpbGw9IiM1NTUiIHRyYW5zZm9ybT0icm90YXRlKC0zMCwzNDcsMjE5KSI+TWF0cml4PC90ZXh0PjxyZWN0IHg9IjM3OSIgeT0iNzIuOSIgd2lkdGg9IjYwIiBoZWlnaHQ9IjEzMy4xIiBmaWxsPSIjRDk1MzE5IiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjAuNSIgcng9IjIiLz48dGV4dCB4PSI0MDkiIHk9IjY5LjkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iOCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmaWxsPSIjMzMzIj40Ni4zPC90ZXh0Pjx0ZXh0IHg9IjQwOSIgeT0iMjE5IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjgiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZmlsbD0iIzU1NSIgdHJhbnNmb3JtPSJyb3RhdGUoLTMwLDQwOSwyMTkpIj5NRjwvdGV4dD48cmVjdCB4PSI0NDEiIHk9IjE5OS42IiB3aWR0aD0iNjAiIGhlaWdodD0iNi40IiBmaWxsPSIjNERCRUVFIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjAuNSIgcng9IjIiLz48dGV4dCB4PSI0NzEiIHk9IjE5Ni42IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjgiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZmlsbD0iIzMzMyI+Mi4yPC90ZXh0Pjx0ZXh0IHg9IjQ3MSIgeT0iMjE5IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjgiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZmlsbD0iIzU1NSIgdHJhbnNmb3JtPSJyb3RhdGUoLTMwLDQ3MSwyMTkpIj5SYW5nZTwvdGV4dD48cmVjdCB4PSI1MDMiIHk9IjIwMi40IiB3aWR0aD0iNjAiIGhlaWdodD0iMy42IiBmaWxsPSIjNERCRUVFIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjAuNSIgcng9IjIiLz48dGV4dCB4PSI1MzMiIHk9IjE5OS40IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjgiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZmlsbD0iIzMzMyI+MS4yPC90ZXh0Pjx0ZXh0IHg9IjUzMyIgeT0iMjE5IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjgiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZmlsbD0iIzU1NSIgdHJhbnNmb3JtPSJyb3RhdGUoLTMwLDUzMywyMTkpIj5Eb3BwbGVyPC90ZXh0PjxyZWN0IHg9IjU2NSIgeT0iMjA1LjMiIHdpZHRoPSI2MCIgaGVpZ2h0PSIwLjciIGZpbGw9IiM0REJFRUUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMC41IiByeD0iMiIvPjx0ZXh0IHg9IjU5NSIgeT0iMjAyLjMiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iOCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmaWxsPSIjMzMzIj4wLjM8L3RleHQ+PHRleHQgeD0iNTk1IiB5PSIyMTkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iOCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmaWxsPSIjNTU1IiB0cmFuc2Zvcm09InJvdGF0ZSgtMzAsNTk1LDIxOSkiPkludGVycDwvdGV4dD48cmVjdCB4PSI2MjciIHk9IjEwNS44IiB3aWR0aD0iNjAiIGhlaWdodD0iMTAwLjIiIGZpbGw9IiNFREIxMjAiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMC41IiByeD0iMiIvPjx0ZXh0IHg9IjY1NyIgeT0iMTAyLjgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iOCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmaWxsPSIjMzMzIj4zNC45PC90ZXh0Pjx0ZXh0IHg9IjY1NyIgeT0iMjE5IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjgiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZmlsbD0iIzU1NSIgdHJhbnNmb3JtPSJyb3RhdGUoLTMwLDY1NywyMTkpIj5SRCBNYXA8L3RleHQ+PGxpbmUgeDE9IjY0IiB5MT0iMjA2LjAiIHgyPSI2MCIgeTI9IjIwNi4wIiBzdHJva2U9IiM4ODgiIHN0cm9rZS13aWR0aD0iMC44Ii8+PHRleHQgeD0iNTgiIHk9IjIxMC4wIiB0ZXh0LWFuY2hvcj0iZW5kIiBmb250LXNpemU9IjkiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZmlsbD0iIzU1NSI+MDwvdGV4dD48bGluZSB4MT0iNjQiIHkxPSIxNzcuMyIgeDI9IjYwIiB5Mj0iMTc3LjMiIHN0cm9rZT0iIzg4OCIgc3Ryb2tlLXdpZHRoPSIwLjgiLz48dGV4dCB4PSI1OCIgeT0iMTgxLjMiIHRleHQtYW5jaG9yPSJlbmQiIGZvbnQtc2l6ZT0iOSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmaWxsPSIjNTU1Ij4xMDwvdGV4dD48bGluZSB4MT0iNjQiIHkxPSIxNDguNSIgeDI9IjYwIiB5Mj0iMTQ4LjUiIHN0cm9rZT0iIzg4OCIgc3Ryb2tlLXdpZHRoPSIwLjgiLz48dGV4dCB4PSI1OCIgeT0iMTUyLjUiIHRleHQtYW5jaG9yPSJlbmQiIGZvbnQtc2l6ZT0iOSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmaWxsPSIjNTU1Ij4yMDwvdGV4dD48bGluZSB4MT0iNjQiIHkxPSIxMTkuOCIgeDI9IjYwIiB5Mj0iMTE5LjgiIHN0cm9rZT0iIzg4OCIgc3Ryb2tlLXdpZHRoPSIwLjgiLz48dGV4dCB4PSI1OCIgeT0iMTIzLjgiIHRleHQtYW5jaG9yPSJlbmQiIGZvbnQtc2l6ZT0iOSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmaWxsPSIjNTU1Ij4zMDwvdGV4dD48bGluZSB4MT0iNjQiIHkxPSI5MS4xIiB4Mj0iNjAiIHkyPSI5MS4xIiBzdHJva2U9IiM4ODgiIHN0cm9rZS13aWR0aD0iMC44Ii8+PHRleHQgeD0iNTgiIHk9Ijk1LjEiIHRleHQtYW5jaG9yPSJlbmQiIGZvbnQtc2l6ZT0iOSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmaWxsPSIjNTU1Ij40MDwvdGV4dD48bGluZSB4MT0iNjQiIHkxPSI2Mi40IiB4Mj0iNjAiIHkyPSI2Mi40IiBzdHJva2U9IiM4ODgiIHN0cm9rZS13aWR0aD0iMC44Ii8+PHRleHQgeD0iNTgiIHk9IjY2LjQiIHRleHQtYW5jaG9yPSJlbmQiIGZvbnQtc2l6ZT0iOSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmaWxsPSIjNTU1Ij41MDwvdGV4dD48dGV4dCB4PSI0MDkiIHk9IjU1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjgiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZmlsbD0iI0Q5NTMxOSIgZm9udC13ZWlnaHQ9ImJvbGQiPmJvdHRsZW5lY2s8L3RleHQ+PC9nPgogIDxsaW5lIHgxPSI2NCIgeTE9Ijg3IiB4Mj0iNzAwIiB5Mj0iODciIHN0cm9rZT0iI2UwZTBlMCIgc3Ryb2tlLXdpZHRoPSIwLjUiLz48bGluZSB4MT0iNjQiIHkxPSIxMjciIHgyPSI3MDAiIHkyPSIxMjciIHN0cm9rZT0iI2UwZTBlMCIgc3Ryb2tlLXdpZHRoPSIwLjUiLz48bGluZSB4MT0iNjQiIHkxPSIxNjYiIHgyPSI3MDAiIHkyPSIxNjYiIHN0cm9rZT0iI2UwZTBlMCIgc3Ryb2tlLXdpZHRoPSIwLjUiLz4KICA8bGluZSB4MT0iMjIzIiB5MT0iNDgiIHgyPSIyMjMiIHkyPSIyMDYiIHN0cm9rZT0iI2UwZTBlMCIgc3Ryb2tlLXdpZHRoPSIwLjUiLz48bGluZSB4MT0iMzgyIiB5MT0iNDgiIHgyPSIzODIiIHkyPSIyMDYiIHN0cm9rZT0iI2UwZTBlMCIgc3Ryb2tlLXdpZHRoPSIwLjUiLz48bGluZSB4MT0iNTQxIiB5MT0iNDgiIHgyPSI1NDEiIHkyPSIyMDYiIHN0cm9rZT0iI2UwZTBlMCIgc3Ryb2tlLXdpZHRoPSIwLjUiLz4KICA8cmVjdCB4PSI2NCIgeT0iNDgiIHdpZHRoPSI2MzYiIGhlaWdodD0iMTU4IiBmaWxsPSJub25lIiBzdHJva2U9IiM4ODgiIHN0cm9rZS13aWR0aD0iMSIvPgogIDx0ZXh0IHg9IjM4MiIgeT0iMzgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iMTEiIGZvbnQtd2VpZ2h0PSJib2xkIiBmb250LWZhbWlseT0iQXJpYWwiIGZpbGw9IiMzMzMiPlByb2Nlc3NpbmcgTGF0ZW5jeSBwZXIgQmxvY2sgKG1zKTwvdGV4dD4KICA8dGV4dCB4PSIzODIiIHk9IjI0MiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxMCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmaWxsPSIjNTU1Ij48L3RleHQ+CiAgPHRleHQgeD0iMjIiIHk9IjEyNyIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxMCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmaWxsPSIjNTU1IiB0cmFuc2Zvcm09InJvdGF0ZSgtOTAsMjIsMTI3KSI+VGltZSAobXMpPC90ZXh0PgogIAoKPC9zdmc+" alt="Per-block latency — Matched Filter is the bottleneck at 46.3 ms (32.9%)" class="matlab-figure-img" />                                <div class="matlab-figure-caption">Per-block latency — Matched Filter is the bottleneck at 46.3 ms (32.9%)</div>
+
+                                    <p>The <strong>Matched Filter (Block 6)</strong> is the heaviest block due to convolution over 128 pulses. In MATLAB simulation the total is ~5–20 ms on a modern CPU. Real-time hardware (FPGA/DSP) must meet the 35.6 μs PRI constraint — this analysis guides hardware acceleration decisions.</p>
+                                    <h4>📊 Code Tracing Values</h4>
+                                    <div class="trace-box">
+                                        <p><strong>Heaviest Block:</strong> Matched Filter (Block 6) — ~60–70% of total</p>
+                                        <p><strong>Lightest Block:</strong> Matrix Reshape (Block 5) — &lt;1%</p>
+                                        <p><strong>Typical Total (MATLAB):</strong> ~5–20 ms on modern CPU</p>
+                                        <p><strong>Real-Time PRI Constraint:</strong> 35.6 μs → FPGA/GPU required</p>
+                                    </div>
+                                </div>
                         </div>
                     </div>
                 </div>
-            </div>
         </section>
 
         <!-- Results Section -->
@@ -1299,7 +1334,7 @@ Plot done</span></pre>
             <div class="container">
                 <h2 class="section-title">Complete MATLAB Implementation</h2>
                 <p class="section-desc">Full source code for the Pulse-Doppler LFM Radar system. Copy this entire code to run the simulation.</p>
-                
+
                 <div class="code-container">
                     <pre><code class="matlab">%% ================== PULSE-DOPPLER LFM RADAR SYSTEM ==================
 %  Academic Project - Range, Velocity, SNR, Detection & Latency
@@ -1644,7 +1679,7 @@ fprintf('\nPlot done\n');
 
 %% ================== END ==================</code></pre>
                 </div>
-                
+
                 <div class="code-notes">
                     <h3>📝 How to Run This Code</h3>
                     <ol>
@@ -1654,7 +1689,7 @@ fprintf('\nPlot done\n');
                         <li>Check the Command Window for results</li>
                         <li>View the Range-Doppler map figure</li>
                     </ol>
-                    
+
                     <h3>🔍 What You Should See</h3>
                     <ul>
                         <li><strong>Console Output:</strong> Estimated Range ≈ 500 m, Estimated Velocity ≈ 200 m/s</li>
